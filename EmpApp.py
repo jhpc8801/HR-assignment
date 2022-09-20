@@ -109,16 +109,64 @@ def manageAttendance():
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
 
 
-    contents = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-    <html>
-    <head>
-    <meta content="text/html; charset=ISO-8859-1"
-    http-equiv="content-type">
-    <title>Python Webbrowser</title>
-    </head>
-    <body>
+    contents = '''<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Attendance for Employees</title>
+    <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
+    <style>
+        h1 {
+            color: #007cb5;
+            text-align: center;
+        }
+        button {
+            color: #ffffff;
+            font-size: large;
+            background-color: #007cb5;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            color: #007cb5;
+            background-color: #ffffff;
+            font-weight: bold;
+            border: 2px solid #007cb5;
+        }
+        table {
+            border-collapse: collapse;
+            width: 95%;
+            margin: 0px 25px 10px 25px;
+        }
+        td, th {
+            border: 2px solid;
+            font-size: large;
+            text-align: center;
+            padding: 10px 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #03F2FF;
+        }
+        .empNames {
+            text-align: left;
+        }
+        .empAttend {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Management</h1>
+    <button>Back</button>
+
     <table>
-    <tr>
+        <tr>
           <th>No.</th>
           <th>Employee Name</th>
           <th>Emp ID</th>
