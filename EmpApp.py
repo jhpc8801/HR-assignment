@@ -108,7 +108,7 @@ def manageAttendance():
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
         else:
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
-
+        p.append(attend)
 
     contents = '''<!DOCTYPE html>
 <html>
