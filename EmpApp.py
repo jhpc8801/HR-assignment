@@ -174,12 +174,15 @@ def manageAttendance():
           <th>Date modified</th>
           <th>Status</th>
           <th>Attendance</th>
-        </tr>
-    %s
-    </table>
+        </tr>'''%(";")
+
+    contents.append(p)
+
+    final_contents = '''
+    %s</table>
     </body>
-    </html>
-    '''%(p)
+    </html>'''%(contents)
+
 
     # surround the %s with html file code that previously designed
 
