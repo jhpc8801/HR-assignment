@@ -86,6 +86,7 @@ def manageAttendance():
     select_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
     cursor.execute(select_sql)
+    db_conn.commit()
     result = cursor.fetchall()
 
     p = []      # for creating a whole new html page using string
@@ -147,7 +148,7 @@ def manageAttendance():
     main(contents, filename)    
     webbrowser.open(filename)
 
-    db_conn.close()
+    cursor.close()
     # if(db_conn.is_connected()):
     #     cursor.close()
     #     db_conn.close()
