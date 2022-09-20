@@ -117,48 +117,48 @@ def manageAttendance():
     <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
     <style>
         h1 {
-            color: #007cb5;
-            text-align: center;
+            color: #007cb5%s
+            text-align: center%s
         }
         button {
-            color: #ffffff;
-            font-size: large;
-            background-color: #007cb5;
-            border: 2px solid transparent;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 4px;
-            margin-left: 25px;
-            margin-bottom: 20px;
+            color: #ffffff%s
+            font-size: large%s
+            background-color: #007cb5%s
+            border: 2px solid transparent%s
+            padding: 10px 20px%s
+            text-align: center%s
+            text-decoration: none%s
+            display: inline-block%s
+            border-radius: 4px%s
+            margin-left: 25px%s
+            margin-bottom: 20px%s
         }
         button:hover {
-            color: #007cb5;
-            background-color: #ffffff;
-            font-weight: bold;
-            border: 2px solid #007cb5;
+            color: #007cb5%s
+            background-color: #ffffff%s
+            font-weight: bold%s
+            border: 2px solid #007cb5%s
         }
         table {
-            border-collapse: collapse;
-            width: 95%;
-            margin: 0px 25px 10px 25px;
+            border-collapse: collapse%s
+            width: 95%%%s
+            margin: 0px 25px 10px 25px%s
         }
         td, th {
-            border: 2px solid;
-            font-size: large;
-            text-align: center;
-            padding: 10px 8px;
+            border: 2px solid%s
+            font-size: large%s
+            text-align: center%s
+            padding: 10px 8px%s
         }
         tr:nth-child(even) {
-            background-color: #03F2FF;
+            background-color: #03F2FF%s
         }
         .empNames {
-            text-align: left;
+            text-align: left%s
         }
         .empAttend {
-            width: 20px;
-            height: 20px;
+            width: 20px%s
+            height: 20px%s
         }
     </style>
 </head>
