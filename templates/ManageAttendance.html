@@ -63,7 +63,14 @@
           <th>Status</th>
           <th>Attendance</th>
         </tr>
-        {{content}}
+        <main></main>
+        <script>
+            let main = document.querySelector("main");
+
+            let str = content;
+
+            main.innerHTML = str;
+        </script>
         
         <!-- <tr>
           <td>1</td>
