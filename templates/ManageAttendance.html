@@ -49,6 +49,14 @@
             height: 20px;
         }
     </style>
+    <script type="text/javascript">
+        let main = document.querySelector("main");
+
+        let str = content;
+        console.log(content);
+
+        main.innerHTML = str;
+    </script>
 </head>
 <body>
     <h1>Attendance Management</h1>
@@ -64,14 +72,7 @@
           <th>Attendance</th>
         </tr>
         <main></main>
-        <script>
-            let main = document.querySelector("main");
-
-            let str = content;
-            console.log("HELLO");
-
-            main.innerHTML = str;
-        </script>
+        
         
         <!-- <tr>
           <td>1</td>
