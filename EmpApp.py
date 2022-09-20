@@ -114,7 +114,8 @@ def manageAttendance():
 <html>
 <head>
     <title>Manage Attendance for Employees</title>
-    <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'ManageAttendance.css' %}">
 </head>
 <body>
     <h1>Attendance Management</h1>
