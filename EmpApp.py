@@ -145,7 +145,7 @@ def manageAttendance():
         output.write(contents)
         output.close()
 
-    # main(contents, filename)    
+    main(contents, filename)    
     # webbrowser.open(filename)
 
     cursor.close()
