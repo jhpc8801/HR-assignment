@@ -49,15 +49,6 @@
             height: 20px;
         }
     </style>
-    <script>
-        let ourString = content;
-        let ConvertStringToHTML = function (str) {
-            let parser = new DOMParser();
-            let doc = parser.parseFromString(str, 'text/html');
-            return doc.body;
-        };
-        document.getElementById("addon").innerHTML = ConvertStringToHTML(ourString);
-    </script>
 </head>
 <body>
     <h1>Attendance Management</h1>
@@ -72,9 +63,7 @@
           <th>Status</th>
           <th>Attendance</th>
         </tr>
-        <tr>
-            <h1><span id = "addon"></span></h1>
-        </tr>
+        {{content}}
         
         <!-- <tr>
           <td>1</td>
