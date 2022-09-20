@@ -95,20 +95,20 @@ def manageAttendance():
 
     for row in result:          # row[] could be the data in the mySQL database
         number = "<tr><td>1. </td>" #"<tr><td>%s</td>"%row[0]
-        p.append(number)
+        p += number
         name = "<td>%s</td>"%(row[1] + row[2])
-        p.append(name)
+        p += name
         empID = "<td>%s</td>"%row[0]
-        p.append(empID)
+        p += empID
         date = "<td>%s</td>"%row[8]
-        p.append(date)
+        p += date
         status = "<td>%s</td>"%row[6]
-        p.append(status)
+        p += status
         if (row[7] == "checked"):
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
         else:
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
-        p.append(attend)
+        p += attend
 
 
 
