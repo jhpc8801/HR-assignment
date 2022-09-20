@@ -135,5 +135,18 @@ def manageAttendance():
 
     filename = 'ManageAttendance.html'
 
+    def main(contents, filename):
+    output = open(filename,"w")
+    output.write(contents)
+    output.close()
+
+    main(contents, filename)    
+    webbrowser.open(filename)
+
+    if(conn.is_connected()):
+        cursor.close()
+        conn.close()
+        print("MySQL connection is closed.")   
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
