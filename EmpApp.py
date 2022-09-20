@@ -113,9 +113,15 @@ def manageAttendance():
     contents = '''<!DOCTYPE html>
 <html>
 <head>
-    <title>Manage Attendance for Employees</title>
+    <title>Manage Attendance for Employees</title>'''
+
+    style = '''
     {% load static %}
-    <link rel='stylesheet' href="{% static 'ManageAttendance.css' %}">
+    <link rel='stylesheet' href="{% static 'ManageAttendance.css' %}">'''
+
+    contents.append(style)
+
+    contents2 = '''
 </head>
 <body>
     <h1>Attendance Management</h1>
@@ -134,6 +140,8 @@ def manageAttendance():
     </table>
 </body>
 </html>'''%(p)
+
+    contents.append(contents2)
 
 
     # surround the %s with html file code that previously designed
