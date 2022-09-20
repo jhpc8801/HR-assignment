@@ -147,7 +147,7 @@ def manageAttendance():
 
     cursor.close()
 
-    return main(contents, filename)    
+    main(contents, filename)    
     # webbrowser.open(filename)
 
     #cursor.close()
@@ -155,7 +155,7 @@ def manageAttendance():
     #     cursor.close()
     #     db_conn.close()
     #     print("MySQL connection is closed.")   
-    #return render_template(filename)
+    return render_template(contents)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
