@@ -89,7 +89,7 @@ def manageAttendance():
     db_conn.commit()
     result = cursor.fetchall()
 
-    p = []      # for creating a whole new html page using string
+    p = ""      # for creating a whole new html page using string
 
     # later one by one append the html code together with the data to the string
 
@@ -110,43 +110,21 @@ def manageAttendance():
             attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
         p.append(attend)
 
-    contents = '''<!DOCTYPE html>
-<html>
-<head>
-    <title>Manage Attendance for Employees</title>
-    
-</head>
-<body>
-    <h1>Attendance Management</h1>
-    <button>Back</button>
 
-    <table>
-        <tr>
-          <th>No.</th>
-          <th>Employee Name</th>
-          <th>Emp ID</th>
-          <th>Date modified</th>
-          <th>Status</th>
-          <th>Attendance</th>
-        </tr>
-    %s
-    </table>
-</body>
-</html>'''%(p)
 
 
     # surround the %s with html file code that previously designed
 
-    filename = 'ManageAttendance.html'
+    # filename = 'ManageAttendance.html'
 
-    def main(contents, filename):
-        output = open(filename,"w")
-        output.write(contents)
-        output.close()
+    # def main(contents, filename):
+    #     output = open(filename,"w")
+    #     output.write(contents)
+    #     output.close()
 
     cursor.close()
 
-    main(contents, filename)    
+    #main(contents, filename)    
     # webbrowser.open(filename)
 
     #cursor.close()
