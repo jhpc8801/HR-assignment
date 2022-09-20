@@ -85,7 +85,7 @@ def AddEmp():
 def manageAttendance():
     select_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
-    cursor.execute(select_employee)
+    cursor.execute(select_sql)
     result = cursor.fetchall()
 
     p = []      # for creating a whole new html page using string
