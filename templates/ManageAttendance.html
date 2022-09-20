@@ -52,7 +52,8 @@
     <script>
         let greeting = document.querySelector('.addon');
         let html = greeting.innerHTML;
-        greeting.innerHTML = {content};
+        greeting.innerHTML = "<p>Hello</p>";
+        greeting.innerHTML += {content};
     </script>
 </head>
 <body>
