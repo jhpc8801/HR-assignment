@@ -94,7 +94,7 @@ def manageAttendance():
     for row in result:          # row[] could be the data in the mySQL database
         number = "<tr><td>1. </td>" #"<tr><td>%s</td>"%row[0]
         p.append(number)
-        name = "<td>%s</td>"%row[1] + %row[2]
+        name = "<td>%s</td>"%(row[1] + row[2])
         p.append(name)
         empID = "<td>%s</td>"%row[0]
         p.append(empID)
