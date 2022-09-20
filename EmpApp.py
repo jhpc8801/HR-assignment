@@ -104,9 +104,9 @@ def manageAttendance():
         status = "<td>%s</td></tr>"%row[6]
         p.append(status)
         if (row[7] == "checked"):
-            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td>'''
+            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
         else:
-            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>'''
+            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
 
 
     contents = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
