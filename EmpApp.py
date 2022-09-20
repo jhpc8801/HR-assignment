@@ -117,6 +117,14 @@ def manageAttendance():
     </head>
     <body>
     <table>
+    <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Emp ID</th>
+          <th>Date modified</th>
+          <th>Status</th>
+          <th>Attendance</th>
+        </tr>
     %s
     </table>
     </body>
