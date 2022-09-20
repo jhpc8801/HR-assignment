@@ -50,10 +50,13 @@
         }
     </style>
     <script>
-        let greeting = document.querySelector('.addon');
-        let html = greeting.innerHTML;
-        greeting.innerHTML = "<p>Hello</p>";
-        greeting.innerHTML += {content};
+        let ourString = content;
+        let ConvertStringToHTML = function (str) {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(str, 'text/html');
+            return doc.body;
+        };
+        document.getElementById("addon").innerHTML = ConvertStringToHTML(ourString);
     </script>
 </head>
 <body>
@@ -69,9 +72,12 @@
           <th>Status</th>
           <th>Attendance</th>
         </tr>
-        <div class="addon">
-            <p>This here</p>
-        </div>
+        <tr>
+            <div id="addon">
+                <p>This here</p>
+            </div>
+        </tr>
+        
         <!-- <tr>
           <td>1</td>
           <td class="empNames"><p name="emp_name"></p></td>
