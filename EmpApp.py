@@ -102,7 +102,7 @@ def manageAttendance():
         p.append(date)
         status = "<td>%s</td></tr>"%row[6]
         p.append(status)
-        if (row[7] == "checked")
+        if (row[7] == "checked"):
             attend = "<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td>"
         else
             attend = "<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>"
