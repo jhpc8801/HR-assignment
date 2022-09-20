@@ -115,52 +115,6 @@ def manageAttendance():
 <head>
     <title>Manage Attendance for Employees</title>
     <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
-    <style>
-        h1 {
-            color: #007cb5%s
-            text-align: center%s
-        }
-        button {
-            color: #ffffff%s
-            font-size: large%s
-            background-color: #007cb5%s
-            border: 2px solid transparent%s
-            padding: 10px 20px%s
-            text-align: center%s
-            text-decoration: none%s
-            display: inline-block%s
-            border-radius: 4px%s
-            margin-left: 25px%s
-            margin-bottom: 20px%s
-        }
-        button:hover {
-            color: #007cb5%s
-            background-color: #ffffff%s
-            font-weight: bold%s
-            border: 2px solid #007cb5%s
-        }
-        table {
-            border-collapse: collapse%s
-            width: 95%%%s
-            margin: 0px 25px 10px 25px%s
-        }
-        td, th {
-            border: 2px solid%s
-            font-size: large%s
-            text-align: center%s
-            padding: 10px 8px%s
-        }
-        tr:nth-child(even) {
-            background-color: #03F2FF%s
-        }
-        .empNames {
-            text-align: left%s
-        }
-        .empAttend {
-            width: 20px%s
-            height: 20px%s
-        }
-    </style>
 </head>
 <body>
     <h1>Attendance Management</h1>
@@ -174,14 +128,11 @@ def manageAttendance():
           <th>Date modified</th>
           <th>Status</th>
           <th>Attendance</th>
-        </tr>'''%(";")
-
-    contents.append(p)
-
-    final_contents = '''
-    %s</table>
-    </body>
-    </html>'''%(contents)
+        </tr>
+    %s
+    </table>
+</body>
+</html>'''%(p)
 
 
     # surround the %s with html file code that previously designed
