@@ -136,9 +136,9 @@ def manageAttendance():
     filename = 'ManageAttendance.html'
 
     def main(contents, filename):
-    output = open(filename,"w")
-    output.write(contents)
-    output.close()
+        output = open(filename,"w")
+        output.write(contents)
+        output.close()
 
     main(contents, filename)    
     webbrowser.open(filename)
