@@ -89,24 +89,18 @@ def manageAttendance():
     db_conn.commit()
     result = cursor.fetchall()
 
-    p = []      # for creating a whole new html page using string
+    #p = []      # for creating a whole new html page using string
 
     # later one by one append the html code together with the data to the string
 
-    for col in result:
-        p.append([])
-        for row in result:
-            number = "1"
-            p[col].append(number)
-            name = (row[1] + row[2])
-            p[col].append(name)
-            empID = row[0]
-            p[col].append(empID)
-            date = row[8]
-            p[col].append(date)
-            status = row[6]
-            p[col].append(status)
-
+    arr = []
+    for col in range(len(result)):
+        arr.append([])
+        arr[col].append(col + 1)
+        arr[col].append(result[col][1] + result[col][2])
+        arr[col].append(result[col][0])
+        arr[col].append(result[col][8])
+        arr[col].append(result[col][6])
 
 
     # for row in result:
@@ -146,7 +140,7 @@ def manageAttendance():
     #     cursor.close()
     #     db_conn.close()
     #     print("MySQL connection is closed.")   
-    return render_template("ManageAttendance.html", content=p)
+    return render_template("ManageAttendance.html", content=arr)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
