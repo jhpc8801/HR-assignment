@@ -71,21 +71,22 @@
         </tbody>
 
         <script>
-            function createTable(tableData) {
-                var tableBody = document.getElementById('contents');
+            document.body.innerHTML = "HELLO";
+            // function createTable(tableData) {
+            //     var tableBody = document.getElementById('contents');
 
-                var arr = [["1", "Jason", "2", "!", "23"]];
-                for (var i = 0; i < arr.length; i++) {
-                    var row = <tr>
-                                  <td>$(arr[0][0])</td>
-                                  <td>$(arr[0][1])</td>
-                                  <td>$(arr[0][2])</td>
-                                  <td>$(arr[0][3])</td>
-                                  <td>$(arr[0][4])</td>    
-                              </tr>
-                    tableBody.innerHTML += row
-                }
-            }
+            //     var arr = [["1", "Jason", "2", "!", "23"]];
+            //     for (var i = 0; i < arr.length; i++) {
+            //         var row = <tr>
+            //                       <td>$(arr[0][0])</td>
+            //                       <td>$(arr[0][1])</td>
+            //                       <td>$(arr[0][2])</td>
+            //                       <td>$(arr[0][3])</td>
+            //                       <td>$(arr[0][4])</td>    
+            //                   </tr>
+            //         tableBody.innerHTML += row
+            //     }
+            // }
 
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
