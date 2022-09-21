@@ -66,33 +66,28 @@
           <th>Time check-in</th>
           <th>Status</th>
         </tr>
-        <tr id="contents">
-            <!-- {{content}} -->
-        </tr>
+        <tbody id="contents">
+
+        </tbody>
 
         <script>
             function createTable(tableData) {
-                var table = document.createElement('table');
-                var tableBody = document.createElement('tbody');
+                var tableBody = document.getElementById('contents');
 
-                tableData.forEach(function(rowData) {
-                    var row = document.createElement('tr');
-
-                    rowData.forEach(function(cellData) {
-                    var cell = document.createElement('td');
-                    cell.appendChild(document.createTextNode(cellData));
-                    row.appendChild(cell);
-                    });
-
-                    tableBody.appendChild(row);
-                });
-
-                table.appendChild(tableBody);
-                document.body.appendChild(table);
+                for (var i = 0; i < content.length; i++) {
+                    var row = <tr>
+                                  <td>$(content[0])</td>
+                                  <td>$(content[1])</td>
+                                  <td>$(content[2])</td>
+                                  <td>$(content[3])</td>
+                                  <td>$(content[4])</td>    
+                              </tr>
+                    tableBody.innerHTML += row
+                }
             }
 
             // createTable(content)
-            document.getElementById("contents") = createTable(content)
+            //document.getElementById("contents") = createTable(content)
         </script>
 
         
