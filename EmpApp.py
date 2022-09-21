@@ -81,8 +81,8 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-@app.route("/manageAtt", methods=['GET', 'POST'])
-def manageAttendance():
+@app.route("/attend", methods=['GET', 'POST'])
+def attendance():
     select_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
     cursor.execute(select_sql)
@@ -140,7 +140,7 @@ def manageAttendance():
     #     cursor.close()
     #     db_conn.close()
     #     print("MySQL connection is closed.")   
-    return render_template("ManageAttendance.html", content=arr)
+    return render_template("Attendance.html", content=arr)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
