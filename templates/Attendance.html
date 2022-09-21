@@ -75,13 +75,12 @@
         </tr>
 
         <script>
-            function createTable() {
+            function createTable(data) {
                 var table = document.getElementById('contents');
 
-                var arr = [["1", "Jason", "2", "!", "23"]];
-                for (var i = 1; i < table.rows.length; i++) {
-                    for (var j = 0; j < table.rows[i].cells.length; j++) {
-                        table.rows[i].cells[j].innerHTML = arr[i - 1][j];
+                for (var i = 1; i < data.rows.length; i++) {
+                    for (var j = 0; j < data.rows[i].cells.length; j++) {
+                        data.rows[i].cells[j].innerHTML = arr[i - 1][j];
                     }
                 }
                 
@@ -96,7 +95,7 @@
                 //     tableBody.innerHTML += row
                 // }
             }
-            createTable();
+            createTable(content);
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
         </script>
