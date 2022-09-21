@@ -66,7 +66,7 @@
           <th>Time check-in</th>
           <th>Status</th>
         </tr>
-        <tr>
+        <tr id="contents">
             <!-- {{content}} -->
         </tr>
 
@@ -91,7 +91,8 @@
                 document.body.appendChild(table);
             }
 
-            createTable(content)
+            // createTable(content)
+            document.getElementById("contents") = createTable(content)
         </script>
 
         
