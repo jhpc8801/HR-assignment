@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Manage Attendance for Employees</title>
-    <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
+    <title>Attendance Management</title>
     <style>
         h1 {
             color: #007cb5;
@@ -18,8 +17,6 @@
             text-decoration: none;
             display: inline-block;
             border-radius: 4px;
-            margin-left: 25px;
-            margin-bottom: 20px;
         }
         button:hover {
             color: #007cb5;
@@ -27,61 +24,156 @@
             font-weight: bold;
             border: 2px solid #007cb5;
         }
-        table {
-            border-collapse: collapse;
-            width: 95%;
-            margin: 0px 25px 10px 25px;
+
+
+
+
+
+        main {
+            display: block;
+            height: 80vh;
+            margin: 0;
         }
-        td, th {
-            border: 2px solid;
-            font-size: large;
+
+        .container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            background-color: rgb(225, 225, 225);
+            padding: 20px 40px;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
+        .container .title {
+            font-size: 23px;
+            font-weight: bold;
             text-align: center;
-            padding: 10px 8px;
+            margin-bottom: 10px;
         }
-        tr:nth-child(even) {
-            background-color: #03F2FF;
+
+        .container form .employee-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .empNames {
-            text-align: left;
+
+        form .employee-details .input-box {
+            margin: 20px 0 12px 0;
+            width: calc(100% / 3 - 20px);
         }
-        .empAttend {
-            width: 20px;
-            height: 20px;
+
+        .employee-details .input-box .details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .employee-details .input-box input {
+            height: 30px;
+            width: 100%;
+        }
+
+        .get {
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            height: 35%;
+            text-align: center;
+            background-color: #007cb5;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+
+        .get:hover {
+            cursor: pointer;
+        }
+
+        .calculate {
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            height: 35%;
+            text-align: center;
+            background-color: #007cb5;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+
+        .calculate:hover {
+            cursor: pointer;
+        }
+
+        .text-amount-container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            padding: 20px 10px;
+            border-radius: 12px;
+            margin: 0 auto;
+            text-align: right;
+            font-size: large;
+        }
+
+        .update-button-container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            padding: 20px 10px;
+            border-radius: 12px;
+            margin: auto;
+            margin-top: -20px;
+            text-align: right;
+        }
+
+        .update-button-container button {
+            background-color: #007cb5;
+            color: white;
+            border: none;
+            width: 25%;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        .update-button-container button:hover {
+            cursor: pointer;
+        }
+
+        button {
+            font-size: 15px;
         }
     </style>
-    <script type="text/javascript">
-        let main = document.querySelector("main");
-
-        let str = content;
-        alert(content);
-
-        main.innerHTML = str;
-    </script>
 </head>
 <body>
     <h1>Attendance Management</h1>
-    <button>Back</button>
+    <button style="margin: 0px 0px 20px 25px">Back</button>
+    <main>
+        <div class="container">
+            <div class="title">Employee Info</div>
+            <form action="/getEmpName" autocomplete="on" method="GET" enctype="multipart/form-data">
+                <div class="employee-details">
+                    <div class="input-box">
+                        <span class="details">Employee ID</span>
+                        <input style="display: inline-flex" type="number" placeholder="0000" name="emp_id"/>
+                        <button class="get" type="submit">Get Employee</button>
 
-    <table>
-        <tr>
-          <th>No.</th>
-          <th>Employee Name</th>
-          <th>Emp ID</th>
-          <th>Date modified</th>
-          <th>Status</th>
-          <th>Attendance</th>
-        </tr>
-        <main></main>
-        
-        
-        <!-- <tr>
-          <td>1</td>
-          <td class="empNames"><p name="emp_name"></p></td>
-          <td><p name="emp_id"></p></td>
-          <td><p name="date_modified"></p></td>
-          <td><p name="emp_status"></p></td>
-          <td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>
-        </tr> -->
-      </table>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">First name</span>
+                        <label>{{ name }}</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last name</span>
+                        <input disabled type="text" placeholder="last name" name="last_name">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
 </body>
 </html>

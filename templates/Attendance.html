@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance of Employees</title>
+    <link rel="stylesheet" href="ManageAttendance.css" type="text/css" />
+    <style>
+        h1 {
+            color: #007cb5;
+            text-align: center;
+        }
+        button {
+            color: #ffffff;
+            font-size: large;
+            background-color: #007cb5;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin-left: 25px;
+            margin-right: 35px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            color: #007cb5;
+            background-color: #ffffff;
+            font-weight: bold;
+            border: 2px solid #007cb5;
+        }
+        table {
+            border-collapse: collapse;
+            width: 95%;
+            margin: 0px 25px 10px 25px;
+        }
+        td, th {
+            border: 2px solid;
+            font-size: large;
+            text-align: center;
+            padding: 10px 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #03F2FF;
+        }
+        .empNames {
+            text-align: left;
+        }
+        .empAttend {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance of Employees</h1>
+    <div>
+        <button>Back</button>
+        <button style="float: right">Manage Attendance</button>
+    </div>
+
+    <table>
+        <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Emp ID</th>
+          <th>Time check-in</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+            {{content}}
+        </tr>
+        
+        
+        <!-- <tr>
+          <td>1</td>
+          <td class="empNames"><p name="emp_name"></p></td>
+          <td><p name="emp_id"></p></td>
+          <td><p name="date_modified"></p></td>
+          <td><p name="emp_status"></p></td>
+          <td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>
+        </tr> -->
+      </table>
+</body>
+</html>

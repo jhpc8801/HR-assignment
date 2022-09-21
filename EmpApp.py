@@ -89,7 +89,7 @@ def manageAttendance():
     db_conn.commit()
     result = cursor.fetchall()
 
-    p = {}      # for creating a whole new html page using string
+    p = []      # for creating a whole new html page using string
 
     # later one by one append the html code together with the data to the string
 
