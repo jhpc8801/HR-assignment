@@ -89,28 +89,42 @@ def manageAttendance():
     db_conn.commit()
     result = cursor.fetchall()
 
-    p = ""      # for creating a whole new html page using string
+    p = {}      # for creating a whole new html page using string
 
     # later one by one append the html code together with the data to the string
 
-    for row in result:          # row[] could be the data in the mySQL database
-        number = "<tr><td>1. </td>" #"<tr><td>%s</td>"%row[0]
-        p += number
-        name = "<td>%s</td>"%(row[1] + row[2])
-        p += name
-        empID = "<td>%s</td>"%row[0]
-        p += empID
-        date = "<td>%s</td>"%row[8]
-        p += date
-        status = "<td>%s</td>"%row[6]
-        p += status
-        if (row[7] == "checked"):
-            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
-        else:
-            attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
-        p += attend
+    for col in result:
+        p.append([])
+        for row in result:
+            number = "1"
+            p[col].append(number)
+            name = (row[1] + row[2])
+            p[col].append(name)
+            empID = row[0]
+            p[col].append(empID)
+            date = row[8]
+            p[col].append(date)
+            status = row[6]
+            p[col].append(status)
 
 
+
+    # for row in result:
+    #     number = "<tr><td>1. </td>" #"<tr><td>%s</td>"%row[0]
+    #     p += number
+    #     name = "<td>%s</td>"%(row[1] + row[2])
+    #     p += name
+    #     empID = "<td>%s</td>"%row[0]
+    #     p += empID
+    #     date = "<td>%s</td>"%row[8]
+    #     p += date
+    #     status = "<td>%s</td>"%row[6]
+    #     p += status
+    #     if (row[7] == "checked"):
+    #         attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
+    #     else:
+    #         attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
+    #     p += attend
 
 
     # surround the %s with html file code that previously designed
