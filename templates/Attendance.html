@@ -75,14 +75,13 @@
         </tr>
 
         <script>
-            function createTable(tableData) {
+            function createTable() {
                 var table = document.getElementById('contents');
 
                 var arr = [["1", "Jason", "2", "!", "23"]];
                 for (var i = 1; i < table.rows.length; i++) {
                     for (var j = 0; j < table.rows[i].cells.length; j++) {
                         table.rows[i].cells[j].innerHTML = arr[i - 1][j];
-                        document.write("HELLO");
                     }
                 }
                 
@@ -97,7 +96,7 @@
                 //     tableBody.innerHTML += row
                 // }
             }
-
+            createTable();
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
         </script>
