@@ -58,7 +58,7 @@
         <button style="float: right">Manage Attendance</button>
     </div>
 
-    <table>
+    <table id="contents">
         <tr>
           <th>No.</th>
           <th>Employee Name</th>
@@ -66,27 +66,36 @@
           <th>Time check-in</th>
           <th>Status</th>
         </tr>
-        <tbody id="contents">
-
-        </tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
 
         <script>
-            document.body.innerHTML = "HELLO";
-            // function createTable(tableData) {
-            //     var tableBody = document.getElementById('contents');
+            function createTable(tableData) {
+                var table = document.getElementById('contents');
 
-            //     var arr = [["1", "Jason", "2", "!", "23"]];
-            //     for (var i = 0; i < arr.length; i++) {
-            //         var row = <tr>
-            //                       <td>$(arr[0][0])</td>
-            //                       <td>$(arr[0][1])</td>
-            //                       <td>$(arr[0][2])</td>
-            //                       <td>$(arr[0][3])</td>
-            //                       <td>$(arr[0][4])</td>    
-            //                   </tr>
-            //         tableBody.innerHTML += row
-            //     }
-            // }
+                var arr = [["1", "Jason", "2", "!", "23"]];
+                for (var i = 1; i < table.rows.length; i++) {
+                    for (var j = 0; j < table.rows[i].cells.length; j++) {
+                        table.rows[i].cells[j].innerHTML = arr[i - 1][j];
+                    }
+                }
+                
+                // for (var i = 0; i < arr.length; i++) {
+                //     var row = <tr>
+                //                   <td>$(arr[0][0])</td>
+                //                   <td>$(arr[0][1])</td>
+                //                   <td>$(arr[0][2])</td>
+                //                   <td>$(arr[0][3])</td>
+                //                   <td>$(arr[0][4])</td>    
+                //               </tr>
+                //     tableBody.innerHTML += row
+                // }
+            }
 
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
