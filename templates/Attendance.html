@@ -53,6 +53,7 @@
     </style>
     <script>
         function createTable(tableData) {
+            var count;
             var tableBody = document.getElementById("contents");
 
             tableData.forEach(function(rowData) {
@@ -65,7 +66,10 @@
                 });
 
                 tableBody.appendChild(row);
+                count++;
             });
+            var countEmp = document.getElementById("countEmp");
+            countEmp.textContent(count + "employees");
         }
     </script>
 </head>
@@ -85,19 +89,9 @@
           <th>Status</th>
         </tr>
         <tbody id="contents">
-
         </tbody>
-
-        
-        
-        <!-- <tr>
-          <td>1</td>
-          <td class="empNames"><p name="emp_name"></p></td>
-          <td><p name="emp_id"></p></td>
-          <td><p name="date_modified"></p></td>
-          <td><p name="emp_status"></p></td>
-          <td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>
-        </tr> -->
       </table>
+
+      <p id="countEmp"></p>
 </body>
 </html>
