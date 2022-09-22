@@ -76,30 +76,31 @@
         {{content}}
 
         <script>
-            function createTable() {
-                var table = document.getElementById('contents');
-                var sum = ""
+            document.write("HELLO");
+            // function createTable() {
+            //     var table = document.getElementById('contents');
+            //     var sum = ""
 
-                for (var i = 1; i < table.rows.length; i++) {
-                    for (var j = 0; j < table.rows[i].cells.length; j++) {
-                        table.rows[i].cells[j].innerHTML = data[i - 1][j];
-                        sum += (data[i - 1][j] + ", ")
-                    }
-                }
+            //     for (var i = 1; i < table.rows.length; i++) {
+            //         for (var j = 0; j < table.rows[i].cells.length; j++) {
+            //             table.rows[i].cells[j].innerHTML = data[i - 1][j];
+            //             sum += (data[i - 1][j] + ", ")
+            //         }
+            //     }
                 
-                // for (var i = 0; i < arr.length; i++) {
-                //     var row = <tr>
-                //                   <td>$(arr[0][0])</td>
-                //                   <td>$(arr[0][1])</td>
-                //                   <td>$(arr[0][2])</td>
-                //                   <td>$(arr[0][3])</td>
-                //                   <td>$(arr[0][4])</td>    
-                //               </tr>
-                //     tableBody.innerHTML += row
-                // }
-                return sum
-            }
-            document.write(createTable());
+            //     // for (var i = 0; i < arr.length; i++) {
+            //     //     var row = <tr>
+            //     //                   <td>$(arr[0][0])</td>
+            //     //                   <td>$(arr[0][1])</td>
+            //     //                   <td>$(arr[0][2])</td>
+            //     //                   <td>$(arr[0][3])</td>
+            //     //                   <td>$(arr[0][4])</td>    
+            //     //               </tr>
+            //     //     tableBody.innerHTML += row
+            //     // }
+            //     return sum
+            // }
+            // createTable();
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
         </script>
