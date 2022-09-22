@@ -89,10 +89,6 @@ def attendance():
     db_conn.commit()
     result = cursor.fetchall()
 
-    #p = []      # for creating a whole new html page using string
-
-    # later one by one append the html code together with the data to the string
-
     arr = []
     for col in range(len(result)):
         arr.append([])
@@ -102,44 +98,8 @@ def attendance():
         arr[col].append(result[col][8])
         arr[col].append(result[col][6])
 
-
-    # for row in result:
-    #     number = "<tr><td>1. </td>" #"<tr><td>%s</td>"%row[0]
-    #     p += number
-    #     name = "<td>%s</td>"%(row[1] + row[2])
-    #     p += name
-    #     empID = "<td>%s</td>"%row[0]
-    #     p += empID
-    #     date = "<td>%s</td>"%row[8]
-    #     p += date
-    #     status = "<td>%s</td>"%row[6]
-    #     p += status
-    #     if (row[7] == "checked"):
-    #         attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend" checked></td></tr>'''
-    #     else:
-    #         attend = '''<td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td></tr>'''
-    #     p += attend
-
-
-    # surround the %s with html file code that previously designed
-
-    # filename = 'ManageAttendance.html'
-
-    # def main(contents, filename):
-    #     output = open(filename,"w")
-    #     output.write(contents)
-    #     output.close()
-
     cursor.close()
-
-    #main(contents, filename)    
-    # webbrowser.open(filename)
-
-    #cursor.close()
-    # if(db_conn.is_connected()):
-    #     cursor.close()
-    #     db_conn.close()
-    #     print("MySQL connection is closed.")   
+ 
     return render_template("Attendance.html", content=arr)
 
 if __name__ == '__main__':
