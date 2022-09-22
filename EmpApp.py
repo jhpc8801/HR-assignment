@@ -104,7 +104,7 @@ def attendance():
 
 @app.route("/manageAtt", methods=['GET', 'POST'])
 def manageAttendance():
-    var x = 0
+    x = 0
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
