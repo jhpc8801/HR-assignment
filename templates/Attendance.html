@@ -73,7 +73,6 @@
             <td></td>
             <td></td>
         </tr>
-        {{content}}
 
         <script>
             function createTable(data) {
@@ -81,18 +80,22 @@
                 var sum = ""
 
                 for (var i = 1; i < table.rows.length; i++) {
+                    var row = document.createElement('TR');
+                    table.appendChild(row);
                     for (var j = 0; j < table.rows[i].cells.length; j++) {
+                        var col = document.createElement('TD');
+                        table.appendChild(col);
                         table.rows[i].cells[j].innerHTML = data[i - 1][j];
                     }
                 }
 
-                for (var i = 1; i < 10; i++) {
-                    for (var j = 0; j < 10; j++) {
-                        sum += (data[i - 1][j] + ", ");
-                    }
-                }
+                // for (var i = 1; i < 10; i++) {
+                //     for (var j = 0; j < 10; j++) {
+                //         sum += (data[i - 1][j] + ", ");
+                //     }
+                // }
 
-                document.write(sum);
+                // document.write(sum);
                 
                 // for (var i = 0; i < arr.length; i++) {
                 //     var row = <tr>
