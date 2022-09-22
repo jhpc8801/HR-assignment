@@ -68,14 +68,17 @@
                 tableBody.appendChild(row);
                 count++;
             });
-            document.getElementById("countEmp").innerHTML = count.toString() + " employees";
+            document.getElementById("countEmp").innerHTML = "--- " + count.toString() + " employees ---";
         }
     </script>
 </head>
 <body onload="createTable({{content}})">
     <h1>Attendance of Employees</h1>
     <div>
-        <button>Back</button>
+        <form action="/">
+            <button formaction="/">Back</button>
+        </form>
+        
         <button style="float: right">Manage Attendance</button>
     </div>
 
