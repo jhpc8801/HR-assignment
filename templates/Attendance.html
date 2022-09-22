@@ -51,7 +51,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="createTable('{{content}}')">
     <h1>Attendance of Employees</h1>
     <div>
         <button>Back</button>
@@ -76,12 +76,12 @@
         {{content}}
 
         <script>
-            function createTable() {
+            function createTable(data) {
                 var table = document.getElementById('contents');
 
                 for (var i = 1; i < table.rows.length; i++) {
                     for (var j = 0; j < table.rows[i].cells.length; j++) {
-                        table.rows[i].cells[j].innerHTML = '{{content}}'[i - 1][j];
+                        table.rows[i].cells[j].innerHTML = data[i - 1][j];
                     }
                 }
                 
@@ -96,7 +96,6 @@
                 //     tableBody.innerHTML += row
                 // }
             }
-            createTable();
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
         </script>

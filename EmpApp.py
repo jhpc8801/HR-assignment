@@ -140,7 +140,7 @@ def attendance():
     #     cursor.close()
     #     db_conn.close()
     #     print("MySQL connection is closed.")   
-    return render_template("Attendance.html", content=arr[])
+    return render_template("Attendance.html", content=arr)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
