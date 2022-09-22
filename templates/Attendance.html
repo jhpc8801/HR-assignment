@@ -92,13 +92,13 @@
             var heading = ["No.", "Employee Name", "Emp ID", "Time check-in", "Status"]
             var table = document.createElement('table');
             var tableBody = document.createElement('tbody');
-            var heading = document.createElement('tr');
-            for (var x = 0; x < 5; x++) {
-                var cell = document.createElement('td');
-                cell.appendChild(document.createTextNode(heading[x]));
-                row.appendChild(cell);
-            }
-            tableBody.appendChild(heading);
+            // var heading = document.createElement('tr');
+            // for (var x = 0; x < 5; x++) {
+            //     var cell = document.createElement('td');
+            //     cell.appendChild(document.createTextNode(heading[x]));
+            //     row.appendChild(cell);
+            // }
+            // tableBody.appendChild(heading);
 
             tableData.forEach(function(rowData) {
                 var row = document.createElement('tr');
