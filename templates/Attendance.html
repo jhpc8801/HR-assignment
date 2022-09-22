@@ -89,16 +89,8 @@
         //document.getElementById("contents") = createTable(content)
 
         function createTable2(tableData) {
-            var heading = ["No.", "Employee Name", "Emp ID", "Time check-in", "Status"]
-            var table = document.getElementById("contents");
-            var tableBody = document.createElement('tbody');
-            var heading = document.createElement('tr');
-            // for (var x = 0; x < 5; x++) {
-            //     var cell = document.createElement('td');
-            //     cell.appendChild(document.createTextNode(heading[x]));
-            //     row.appendChild(cell);
-            // }
-            tableBody.appendChild(heading);
+            //var table = document.getElementById("contents");
+            var tableBody = document.getElementById("contents");
 
             tableData.forEach(function(rowData) {
                 var row = document.createElement('tr');
@@ -112,7 +104,7 @@
                 tableBody.appendChild(row);
             });
 
-            table.appendChild(tableBody);
+            //table.appendChild(tableBody);
             //document.body.appendChild(table);
         }
     </script>
@@ -132,7 +124,7 @@
           <th>Time check-in</th>
           <th>Status</th>
         </tr>
-        <tbody>
+        <tbody id="contents">
 
         </tbody>
 
@@ -146,9 +138,6 @@
           <td><p name="emp_status"></p></td>
           <td><input type="checkbox" class="empAttend" name="emp_attendance" value="attend"></td>
         </tr> -->
-      </table>
-      <table id="contents">
-
       </table>
 </body>
 </html>
