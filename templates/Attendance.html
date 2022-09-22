@@ -50,8 +50,66 @@
             height: 20px;
         }
     </style>
+    <script>
+        function createTable(data) {
+            var table = document.getElementById('contents');
+
+            for (var i = 1; i < data.length; i++) {
+                var row = document.createElement('TR');
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    var col = document.createElement('TD');
+                    table.appendChild(col);
+                    table.rows[i].cells[j].innerHTML = data[i - 1][j];
+                }
+                table.appendChild(row);
+            }
+
+            // for (var i = 1; i < table.rows.length; i++) {
+            //     var row = document.createElement('TR');
+            //     table.appendChild(row);
+            //     for (var j = 0; j < table.rows[i].cells.length; j++) {
+            //         var col = document.createElement('TD');
+            //         table.appendChild(col);
+            //         table.rows[i].cells[j].innerHTML = data[i - 1][j];
+            //     }
+            // }
+            
+            // for (var i = 0; i < arr.length; i++) {
+            //     var row = <tr>
+            //                   <td>$(arr[0][0])</td>
+            //                   <td>$(arr[0][1])</td>
+            //                   <td>$(arr[0][2])</td>
+            //                   <td>$(arr[0][3])</td>
+            //                   <td>$(arr[0][4])</td>    
+            //               </tr>
+            //     tableBody.innerHTML += row
+            // }
+        }
+        // createTable(content)
+        //document.getElementById("contents") = createTable(content)
+
+        function createTable2(tableData) {
+            var table = document.createElement('table');
+            var tableBody = document.createElement('tbody');
+
+            tableData.forEach(function(rowData) {
+                var row = document.createElement('tr');
+
+                rowData.forEach(function(cellData) {
+                var cell = document.createElement('td');
+                cell.appendChild(document.createTextNode(cellData));
+                row.appendChild(cell);
+                });
+
+                tableBody.appendChild(row);
+            });
+
+            table.appendChild(tableBody);
+            document.body.appendChild(table);
+        }
+    </script>
 </head>
-<body onload="createTable({{content}})">
+<body onload="createTable2({{content}})">
     <h1>Attendance of Employees</h1>
     <div>
         <button>Back</button>
@@ -66,66 +124,6 @@
           <th>Time check-in</th>
           <th>Status</th>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <script>
-            function createTable(data) {
-                var table = document.getElementById('contents');
-
-                for (var i = 1; i < data.length; i++) {
-                    var row = document.createElement('TR');
-                    for (var j = 0; j < table.rows[i].cells.length; j++) {
-                        var col = document.createElement('TD');
-                        table.appendChild(col);
-                        table.rows[i].cells[j].innerHTML = data[i - 1][j];
-                    }
-                    table.appendChild(row);
-                }
-
-                // for (var i = 1; i < table.rows.length; i++) {
-                //     var row = document.createElement('TR');
-                //     table.appendChild(row);
-                //     for (var j = 0; j < table.rows[i].cells.length; j++) {
-                //         var col = document.createElement('TD');
-                //         table.appendChild(col);
-                //         table.rows[i].cells[j].innerHTML = data[i - 1][j];
-                //     }
-                // }
-                
-                // for (var i = 0; i < arr.length; i++) {
-                //     var row = <tr>
-                //                   <td>$(arr[0][0])</td>
-                //                   <td>$(arr[0][1])</td>
-                //                   <td>$(arr[0][2])</td>
-                //                   <td>$(arr[0][3])</td>
-                //                   <td>$(arr[0][4])</td>    
-                //               </tr>
-                //     tableBody.innerHTML += row
-                // }
-            }
-            // createTable(content)
-            //document.getElementById("contents") = createTable(content)
-        </script>
 
         
         
