@@ -83,10 +83,13 @@
                 for (var i = 1; i < table.rows.length; i++) {
                     for (var j = 0; j < table.rows[i].cells.length; j++) {
                         table.rows[i].cells[j].innerHTML = '{{content}}'[i - 1][j];
-                        sum += ('{{content}}'[i - 1][j] + ", ")
                     }
                 }
-                document.write("test");
+                for (var i = 1; i < 10; i++) {
+                    for (var j = 0; j < 10; j++) {
+                        sum += ('{{content}}'[i - 1][j]);
+                    }
+                }
                 document.write(sum);
                 
                 // for (var i = 0; i < arr.length; i++) {
