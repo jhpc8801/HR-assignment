@@ -98,6 +98,7 @@
                 cell.appendChild(document.createTextNode(heading[x]));
                 row.appendChild(cell);
             }
+            tableBody.appendChild(heading);
 
             tableData.forEach(function(rowData) {
                 var row = document.createElement('tr');
