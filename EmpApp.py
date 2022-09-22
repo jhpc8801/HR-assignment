@@ -102,5 +102,9 @@ def attendance():
  
     return render_template("Attendance.html", content=arr)
 
+@app.route("/manageAtt", methods=['GET', 'POST'])
+def manageAttendance():
+    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
