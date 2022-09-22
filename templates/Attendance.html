@@ -86,6 +86,7 @@
                         sum += (data[i - 1][j] + ", ")
                     }
                 }
+                document.write(sum);
                 
                 // for (var i = 0; i < arr.length; i++) {
                 //     var row = <tr>
@@ -97,9 +98,8 @@
                 //               </tr>
                 //     tableBody.innerHTML += row
                 // }
-                return sum
             }
-            document.write(createTable());
+            createTable();
             // createTable(content)
             //document.getElementById("contents") = createTable(content)
         </script>
