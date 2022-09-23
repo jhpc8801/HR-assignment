@@ -93,8 +93,8 @@
         }
     </style>
     <script>
-        function setVisible(id) {
-            if (id != null) {
+        function setVisible(id, stat) {
+            if (stat != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
                 // if (stat == "Present")
                 //     document.getElementById("att_present").checked = true;
@@ -104,7 +104,7 @@
         }
     </script>
 </head>
-<body onload="setVisible({{id}})">
+<body onload="setVisible({{id}}, {{stat}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
