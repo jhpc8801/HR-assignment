@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Payroll</title>
+    <style>
+        main {
+            display: block;
+            height: 80vh;
+            margin: 0;
+        }
+
+        .container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            background-color: rgb(225, 225, 225);
+            padding: 20px 40px;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
+        .container .title {
+            font-size: 23px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .container div.innerForm .employee-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        div.innerForm .employee-details .input-box {
+            margin: 20px 0 12px 0;
+            width: calc(100% / 3 - 20px);
+        }
+
+        .employee-details .input-box .details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .employee-details .input-box input {
+            height: 30px;
+            width: 100%;
+        }
+
+        .get {
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            height: 35%;
+            text-align: center;
+            background-color: #007cb5;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+
+        .get:hover {
+            cursor: pointer;
+        }
+
+        .calculate {
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            height: 35%;
+            text-align: center;
+            background-color: #007cb5;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+
+        .calculate:hover {
+            cursor: pointer;
+        }
+
+        .text-amount-container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            padding: 20px 10px;
+            border-radius: 12px;
+            margin: 0 auto;
+            text-align: right;
+            font-size: large;
+        }
+
+        .update-button-container {
+            display: block;
+            max-width: 1000px;
+            width: 80%;
+            padding: 20px 10px;
+            border-radius: 12px;
+            margin: auto;
+            margin-top: -20px;
+            text-align: right;
+        }
+
+        .update-button-container button {
+            background-color: #007cb5;
+            color: white;
+            border: none;
+            width: 25%;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        .update-button-container button:hover {
+            cursor: pointer;
+        }
+
+        button {
+            font-size: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="color: #007cb5; text-align: center;">
+        Edit Employee Payroll
+    </h1>
+
+    <main>
+
+        <div class="container">
+            <div class="title">Employee Info</div>
+            <div class="innerForm">
+                <div class="employee-details">
+                    <div class="input-box">
+                        <form action="/getEmpName" autocomplete="on" method="GET" enctype="multipart/form-data">
+                            <span class="details">Employee ID</span>
+                            <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
+                                name="emp_id" />
+                            <button class="get" type="submit">Get Employee</button>
+                        </form>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">First name</span>
+                        <input disabled type="text" value="{{ fname }}" name="last_name">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last name</span>
+                        <input disabled type="text" placeholder="{{ lname }}" name="last_name">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container" style="margin-top: 30px;">
+            <div class="title">Payroll Info</div>
+            <div class="innerForm">
+                <div class="employee-details">
+                    <div class="input-box">
+                        <span class="details">Basic Salary</span>
+                        <input type="number" id="salary" placeholder="0.00" name="salary" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Allowance</span>
+                        <input type="number" id="allowance" placeholder="0.00" name="allowance" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Deduction</span>
+                        <input type="number" id="deduction" placeholder="0.00" name="deduction" />
+                        <button class="calculate" onclick="calculatePayable()">Calculate payable</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-amount-container">
+            <label>Net Amount Payable: RM </label>
+            <label id="amount" class="amount"></label>
+        </div>
+
+        <div class="update-button-container">
+            <button>Update Payroll</button>
+        </div>
+
+    </main>
+
+    <script>
+        function calculatePayable() {
+            var salary = 0;
+            var allowance = 0;
+            var deduction = 0;
+
+            if (document.getElementById('salary').value.length != 0) {
+                salary = parseFloat(document.getElementById('salary').value);
+            }
+            if (document.getElementById('allowance').value.length != 0) {
+                allowance = parseFloat(document.getElementById('allowance').value);
+            }
+            if (document.getElementById('deduction').value.length != 0) {
+                deduction = parseFloat(document.getElementById('deduction').value);
+            }
+
+            document.getElementById('amount').innerHTML = (salary + allowance - deduction).toFixed(2);
+        }
+
+
+    </script>
+
+</body>
+
+</html>
