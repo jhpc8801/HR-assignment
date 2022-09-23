@@ -19,12 +19,13 @@ db_conn = connections.Connection(
 
 )
 output = {}
-table = 'employee'
+employee_table = 'employee'
+payroll_table = 'payroll'
 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('EditPayroll.html')
+    return render_template('AddEmp.html')
 
 
 @app.route("/about", methods=['POST'])
@@ -81,28 +82,56 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+# @app.route("/getEmpName", methods=['GET'])
+# def GetEmpName():
+#     emp_id = request.args['emp_id']
+
+#     get_fn_sql = "SELECT first_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
+#     get_ln_sql = "SELECT last_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
+
+#     cursor1 = db_conn.cursor()
+#     cursor2 = db_conn.cursor()
+#     db_conn.commit()
+
+#     if emp_id != "":
+#         cursor1.execute(get_fn_sql)
+#         cursor2.execute(get_ln_sql)
+ 
+#         first_name = str(cursor1.fetchone()[0])
+#         last_name = str(cursor2.fetchone()[0])
+
+#     cursor1.close()
+#     cursor2.close()
+
+#     return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
+
 @app.route("/getEmpName", methods=['GET'])
 def GetEmpName():
     emp_id = request.args['emp_id']
 
     get_fn_sql = "SELECT first_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
     get_ln_sql = "SELECT last_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
+    get_stat_sql = "SELECT status FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
 
     cursor1 = db_conn.cursor()
     cursor2 = db_conn.cursor()
+    cursor3 = db_conn.cursor()
     db_conn.commit()
 
     if emp_id != "":
         cursor1.execute(get_fn_sql)
         cursor2.execute(get_ln_sql)
+        cursor3.execute(get_stat_sql)
  
         first_name = str(cursor1.fetchone()[0])
         last_name = str(cursor2.fetchone()[0])
+        status = str(cursor3.fetchone()[0])
 
     cursor1.close()
     cursor2.close()
+    cursor3.close()
 
-    return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
+    return render_template('ManageAttendance.html', id=emp_id, fname=first_name, lname=last_name, stat=status)
 
 @app.route("/attend", methods=['GET'])
 def attendance():

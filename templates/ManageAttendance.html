@@ -104,25 +104,27 @@
     <main>
         <div class="container">
             <div class="title">Employee Info</div>
-            <form action="/getEmpName" autocomplete="on" method="GET" enctype="multipart/form-data">
+            <div class="innerForm">
                 <div class="employee-details">
                     <div class="input-box">
-                        <span class="details">Employee ID</span>
-                        <input style="display: inline-flex" type="number" placeholder="0000" name="emp_id"/>
-                        <button class="get" type="submit">Get Employee</button>
-
+                        <form action="/getEmpName" autocomplete="on" method="GET" enctype="multipart/form-data">
+                            <span class="details">Employee ID</span>
+                            <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
+                                name="emp_id" />
+                            <button formaction="/getEmpName" class="get" type="submit">Get Employee</button>
+                        </form>
                     </div>
                     <div class="input-box">
                         <span class="details">First name</span>
-                        <label>{{ name }}</label>
+                        <input disabled type="text" value="{{ fname }}" name="last_name">
                     </div>
                     <div class="input-box">
                         <span class="details">Last name</span>
-                        <input disabled type="text" placeholder="last name" name="last_name">
+                        <input disabled type="text" placeholder="{{ lname }}" name="last_name">
                     </div>
                     <div class="input-box">
                         <span class="details">Status</span>
-                        <p style="text-align: center"> --- </p>
+                        <p style="text-align: center" value="{{ stat }}" name="status"> --- </p>
                     </div>
                 </div>
 
