@@ -95,7 +95,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="setVisible({{id}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
@@ -111,7 +111,7 @@
                             <span class="details">Employee ID</span>
                             <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
                                 name="emp_id" />
-                            <button onclick="setVisible()" class="get" type="submit">Get Employee</button>
+                            <button class="get" type="submit">Get Employee</button>
                         </form>
                     </div>
                     <div class="input-box">
@@ -151,8 +151,9 @@
         </div>
 
         <script>
-            function setVisible() {
-                document.getElementById("updateAttendance").style.visibility = "visible";
+            function setVisible(id) {
+                if (id != null)
+                    document.getElementById("updateAttendance").style.visibility = "visible";
             }
         </script>
 
