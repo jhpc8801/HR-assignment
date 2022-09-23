@@ -94,13 +94,13 @@
     </style>
     <script>
         function setVisible(id, stat) {
-            if (id != null) {
-                document.getElementById("updateAttendance").style.visibility = "visible";
-                // if (stat == "Present")
-                //     document.getElementById("att_present").checked = true;
-                // if (stat == "Absent")
-                //     document.getElementById("att_absent").checked = true;
-            }
+            // if (id != null) {
+            //     document.getElementById("updateAttendance").style.visibility = "visible";
+            //     // if (stat == "Present")
+            //     //     document.getElementById("att_present").checked = true;
+            //     // if (stat == "Absent")
+            //     //     document.getElementById("att_absent").checked = true;
+            // }
             if (stat == "Present")
                 document.getElementById("att_present").checked = true;
             if (stat == "Absent")
@@ -144,7 +144,7 @@
             </div>
         </div>
 
-        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
+        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: visible;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" method="POST">
                 <div>
