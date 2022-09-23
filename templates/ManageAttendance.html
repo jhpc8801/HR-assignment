@@ -7,6 +7,7 @@
             color: #007cb5;
             text-align: center;
         }
+
         button {
             color: #ffffff;
             font-size: large;
@@ -18,16 +19,13 @@
             display: inline-block;
             border-radius: 4px;
         }
+
         button:hover {
             color: #007cb5;
             background-color: #ffffff;
             font-weight: bold;
             border: 2px solid #007cb5;
         }
-
-
-
-
 
         main {
             display: block;
@@ -94,8 +92,19 @@
             font-size: 15px;
         }
     </style>
+    <script>
+        function setVisible(id, stat) {
+            if (id != null) {
+                document.getElementById("updateAttendance").style.visibility = "visible";
+                if (stat == "Present")
+                    document.getElementById("att_present").checked = true;
+                else
+                    document.getElementById("att_absent").checked = true;
+            }
+        }
+    </script>
 </head>
-<body onload="setVisible({{id}})">
+<body onload="setVisible({{id}}, {{stat}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
@@ -141,21 +150,14 @@
                     </span>
                     <span style="width: 40%; float: right">
                         <p>Attendance of employee:</p>
-                        <input type="radio" id="att_present" name="present" value="Present">
+                        <input type="radio" id="att_present" name="attendance" value="Present">
                         <label for="att_present">Present</label><br>
-                        <input type="radio" id="att_absent" name="absent" value="Absent">
+                        <input type="radio" id="att_absent" name="attendance" value="Absent">
                         <label for="att_absent">Absent</label>
                     </span>
                 </div>
             </form>
         </div>
-
-        <script>
-            function setVisible(id) {
-                if (id != null)
-                    document.getElementById("updateAttendance").style.visibility = "visible";
-            }
-        </script>
 
     </main>
 
