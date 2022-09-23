@@ -107,11 +107,11 @@
             <div class="innerForm">
                 <div class="employee-details">
                     <div class="input-box">
-                        <form action="/getEmpName" autocomplete="on" method="GET" enctype="multipart/form-data">
+                        <form action="/getEmpAtt" autocomplete="on" method="GET" enctype="multipart/form-data">
                             <span class="details">Employee ID</span>
                             <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
                                 name="emp_id" />
-                            <button formaction="/getEmpName" class="get" type="submit">Get Employee</button>
+                            <button onclick="setVisible" class="get" type="submit">Get Employee</button>
                         </form>
                     </div>
                     <div class="input-box">
@@ -124,14 +124,14 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Status</span>
-                        <p style="text-align: center" name="status">{{ stat }}</p>
+                        <b><p style="text-align: center" name="status">{{ stat }}</p></b>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <div class="container" style="margin-top:20px; height: 130px">
+        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" method="POST">
                 <div>
@@ -141,7 +141,7 @@
                     </span>
                     <span style="width: 40%; float: right">
                         <p>Attendance of employee:</p>
-                        <input type="radio" id="att_preseny" name="present" value="Present">
+                        <input type="radio" id="att_present" name="present" value="Present">
                         <label for="att_present">Present</label><br>
                         <input type="radio" id="att_absent" name="absent" value="Absent">
                         <label for="att_absent">Absent</label>
@@ -149,6 +149,14 @@
                 </div>
             </form>
         </div>
+
+        <script>
+            function setVisible() {
+                attendanceContainer = document.getElementById("updateAttendance");
+
+                attendanceContainer.visibility = "visible";
+            }
+        </script>
 
     </main>
 

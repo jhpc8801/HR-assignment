@@ -105,8 +105,8 @@ def AddEmp():
 
 #     return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
 
-@app.route("/getEmpName", methods=['GET'])
-def GetEmpName():
+@app.route("/getEmpAtt", methods=['GET'])
+def GetEmpAtt():
     emp_id = request.args['emp_id']
 
     get_fn_sql = "SELECT first_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
