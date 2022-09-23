@@ -93,23 +93,25 @@
         }
     </style>
     <script>
-        function setVisible(id, stat) {
-            // if (id != null) {
-            //     document.getElementById("updateAttendance").style.visibility = "visible";
-            //     // if (stat == "Present")
-            //     //     document.getElementById("att_present").checked = true;
-            //     // if (stat == "Absent")
-            //     //     document.getElementById("att_absent").checked = true;
-            // }
+        function setVisible(id) {
+            if (id != null) {
+                document.getElementById("updateAttendance").style.visibility = "visible";
+                // if (stat == "Present")
+                //     document.getElementById("att_present").checked = true;
+                // if (stat == "Absent")
+                //     document.getElementById("att_absent").checked = true;
+            }
+        }
+        function setAtt(stat) {
             if (stat == "Present")
-                console.log("ALERT");
-                //document.getElementById("att_present").checked = true;
+                document.getElementById("att_present").checked = true;
             if (stat == "Absent")
                 document.getElementById("att_absent").checked = true;
+
         }
     </script>
 </head>
-<body onload="setVisible({{id}}, {{stat}})">
+<body onload="setVisible({{id}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
@@ -145,7 +147,7 @@
             </div>
         </div>
 
-        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: visible;">
+        <div class="container" onload="setAtt({{stat}})" style="margin-top:20px; height: 130px; visibility: visible;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" method="POST">
                 <div>
