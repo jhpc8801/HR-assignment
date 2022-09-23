@@ -102,13 +102,13 @@
                 //     document.getElementById("att_absent").checked = true;
             }
         }
-        function setAtt(stat) {
-            if (stat == "Present")
-                document.getElementById("att_present").checked = true;
-            if (stat == "Absent")
-                document.getElementById("att_absent").checked = true;
+        // function setAtt(stat) {
+        //     if (stat == "Present")
+        //         document.getElementById("att_present").checked = true;
+        //     if (stat == "Absent")
+        //         document.getElementById("att_absent").checked = true;
 
-        }
+        // }
     </script>
 </head>
 <body onload="setVisible({{id}})">
@@ -147,7 +147,7 @@
             </div>
         </div>
 
-        <div class="container" onload="setAtt({{stat}})" style="margin-top:20px; height: 130px; visibility: hidden;">
+        <div class="container" style="margin-top:20px; height: 130px; visibility: hidden;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" method="POST">
                 <div>
