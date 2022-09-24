@@ -176,7 +176,7 @@ def attendance():
  
     return render_template("Attendance.html", content=arr)
 
-@app.route("/updateAtt", methods=['GET', 'POST'])
+@app.route("/updateAtt", methods=['POST'])
 def manageAttendance():
     emp_image_file = request.files['emp_image_file']
 
