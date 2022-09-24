@@ -102,13 +102,13 @@
                 //     document.getElementById("att_absent").checked = true;
             }
         }
-        // function setAtt(stat) {
-        //     if (stat == "Present")
-        //         document.getElementById("att_present").checked = true;
-        //     if (stat == "Absent")
-        //         document.getElementById("att_absent").checked = true;
+        function setAtt(stat) {
+            if (stat == "Present")
+                document.getElementById("att_present").checked = true;
+            if (stat == "Absent")
+                document.getElementById("att_absent").checked = true;
 
-        // }
+        }
     </script>
 </head>
 <body onload="setVisible({{id}})">
@@ -140,7 +140,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Status</span>
-                        <b><p style="text-align: center" name="status">{{ stat }}</p></b>
+                        <b><p style="text-align: center" name="status" onload="setAtt({{stat}})">{{ stat }}</p></b>
                     </div>
                 </div>
 
