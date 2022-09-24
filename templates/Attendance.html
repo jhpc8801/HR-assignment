@@ -61,18 +61,16 @@
 
                 rowData.forEach(function(cellData) {
                     var cell = document.createElement('td');
-                    if (!cellData[4])
+                    if (cellData != 1||0||-1)
                         cell.appendChild(document.createTextNode(cellData));
                     else {
-                        if (cellData[4] == 1)
+                        if (cellData == 1)
                             var textNode = document.createTextNode("Present");
-                        else if (cellData[4] == 0)
+                        else if (cellData == 0)
                             var textNode = document.createTextNode("Absent");
                         else
                             var textNode = document.createTextNode(" --- ");
-                        cell.appendChild(document.createTextNode(textNode));
                     }
-                    
                     row.appendChild(cell);
                 });
 
