@@ -131,6 +131,8 @@ def GetEmpAtt():
     cursor2.close()
     cursor3.close()
 
+    status = false
+
     return render_template('ManageAttendance.html', id=emp_id, fname=first_name, lname=last_name, stat=status)
 
 @app.route("/attend", methods=['GET'])
