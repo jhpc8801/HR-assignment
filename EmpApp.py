@@ -81,29 +81,6 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-# @app.route("/getEmpName", methods=['GET'])
-# def GetEmpName():
-#     emp_id = request.args['emp_id']
-
-#     get_fn_sql = "SELECT first_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
-#     get_ln_sql = "SELECT last_name FROM " + employee_table + " WHERE emp_id" + " = " + emp_id
-
-#     cursor1 = db_conn.cursor()
-#     cursor2 = db_conn.cursor()
-#     db_conn.commit()
-
-#     if emp_id != "":
-#         cursor1.execute(get_fn_sql)
-#         cursor2.execute(get_ln_sql)
- 
-#         first_name = str(cursor1.fetchone()[0])
-#         last_name = str(cursor2.fetchone()[0])
-
-#     cursor1.close()
-#     cursor2.close()
-
-#     return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
-
 @app.route("/getPayrollList", methods=['GET'])
 def payrollList():
     select_sql = "SELECT * FROM employee"
@@ -176,9 +153,9 @@ def attendance():
  
     return render_template("Attendance.html", content=arr)
 
-# @app.route("/manageAtt", method=['POST'])
-# def manageAttendance():
-#     return render_template("ManageAttendance.html")
+@app.route("/manageAtt", methods=['POST'])
+def manageAttendance():
+    return render_template("ManageAttendance.html")
 
 @app.route("/updateAtt", methods=['POST'])
 def updateAttendance():
