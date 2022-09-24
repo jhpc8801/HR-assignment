@@ -107,7 +107,7 @@ def AddEmp():
 
 @app.route("/getPayrollList", methods=['GET'])
 def payrollList():
-    select_sql = "SELECT employee.emp_id, employee.first_name, employee.last_name, payroll.salary, payroll.allowance, payroll.deduction, payroll.net_amount FROM employee, payroll WHERE employee.emp_id = payroll.emp_id"
+    select_sql = "SELECT * FRom employee"
     cursor = db_conn.cursor()
     cursor.execute(select_sql)
     db_conn.commit()
