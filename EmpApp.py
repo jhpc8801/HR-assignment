@@ -178,7 +178,7 @@ def attendance():
 
 @app.route("/updateAtt", methods=['GET', 'POST'])
 def manageAttendance():
-    #emp_image_file = request.files['emp_image_file']
+    emp_image_file = request.files['emp_image_file']
 
     update_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
