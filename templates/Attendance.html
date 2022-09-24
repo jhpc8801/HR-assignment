@@ -59,19 +59,9 @@
             tableData.forEach(function(rowData) {
                 var row = document.createElement('tr');
 
-                rowData.forEach(function(cellData) {
+                rowData.forEach(function (cellData) {
                     var cell = document.createElement('td');
-                    if (cellData != 1 && cellData != 0 && cellData != -1)
-                        cell.appendChild(document.createTextNode(cellData));
-                    else {
-                        if (cellData == 1)
-                            var textNode = document.createTextNode("Present");
-                        else if (cellData == 0)
-                            var textNode = document.createTextNode("Absent");
-                        else
-                            var textNode = document.createTextNode(" --- ");
-                        cell.appendChild(textNode);
-                    }
+                    cell.appendChild(document.createTextNode(cellData));
                     row.appendChild(cell);
                 });
 
