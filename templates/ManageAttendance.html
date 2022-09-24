@@ -112,9 +112,9 @@
 
         stat = "Present"
         if (stat == "Present")
-            document.secForm.attendance[0].checked = true;
+            document.getElementById("att_present").checked = true;
         if (stat == "Absent")
-            document.secForm.attendance[1].checked = true;
+            document.getElementById("att_absent").checked = true;
     </script>
 </head>
 <body onload="setVisible({{id}}), setAtt({{stat}})">
