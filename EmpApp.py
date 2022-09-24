@@ -173,7 +173,7 @@ def updateAttendance():
 
     if (attendance == "Present"):
         status = 1
-    else if (attendance == "Absent"):
+    elif (attendance == "Absent"):
         status = 0
     else:
         status = -1
