@@ -100,10 +100,11 @@
                 //     document.getElementById("att_present").checked = true;
                 // if (stat == "Absent")
                 //     document.getElementById("att_absent").checked = true;
-
+                setAtt();
             }
         }
-        function setAtt(stat) {
+        function setAtt() {
+            var sta = {{stat}};
             var radioBody = document.getElementById("radioBtns");
 
             var present = document.createElement('INPUT');
@@ -112,7 +113,7 @@
             var absent = document.createElement('INPUT');
             absent.setAttribute("type", "radio");
             absent.name = "attendance";
-            if (stat == "Present")
+            if (sta == "Present")
                 present.checked = true;
             else
                 absent.checked = true;
@@ -123,7 +124,7 @@
         }
     </script>
 </head>
-<body onload="setVisible({{id}});setAtt({{stat}})">
+<body onload="setVisible({{id}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
