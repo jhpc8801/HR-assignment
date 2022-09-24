@@ -93,46 +93,46 @@
         }
     </style>
     <script>
-        function setVisible(id) {
-            if (id != null) {
-                document.getElementById("updateAttendance").style.visibility = "visible";
-                //var sta = {{stat}};
-                var radioBody = document.getElementById("radioBtns");
+        // function setVisible(id) {
+        //     if (id != null) {
+        //         document.getElementById("updateAttendance").style.visibility = "visible";
+        //         //var sta = {{stat}};
+        //         var radioBody = document.getElementById("radioBtns");
 
-                var present = document.createElement('INPUT');
-                present.setAttribute("type", "radio");
-                present.name = "attendance";
-                var absent = document.createElement('INPUT');
-                absent.setAttribute("type", "radio");
-                absent.name = "attendance";
-                // if (sta == "Present")
-                //     present.checked = true;
-                // else
-                //     absent.checked = true;
+        //         var present = document.createElement('INPUT');
+        //         present.setAttribute("type", "radio");
+        //         present.name = "attendance";
+        //         var absent = document.createElement('INPUT');
+        //         absent.setAttribute("type", "radio");
+        //         absent.name = "attendance";
+        //         // if (sta == "Present")
+        //         //     present.checked = true;
+        //         // else
+        //         //     absent.checked = true;
 
-                radioBody.appendChild(present);
-                radioBody.appendChild(absent);
-            }
-        }
-        function setAtt() {
-            var sta = {{stat}};
-            var radioBody = document.getElementById("radioBtns");
+        //         radioBody.appendChild(present);
+        //         radioBody.appendChild(absent);
+        //     }
+        // }
+        // function setAtt() {
+        //     var sta = {{stat}};
+        //     var radioBody = document.getElementById("radioBtns");
 
-            var present = document.createElement('INPUT');
-            present.setAttribute("type", "radio");
-            present.name = "attendance";
-            var absent = document.createElement('INPUT');
-            absent.setAttribute("type", "radio");
-            absent.name = "attendance";
-            if (sta == "Present")
-                present.checked = true;
-            else
-                absent.checked = true;
+        //     var present = document.createElement('INPUT');
+        //     present.setAttribute("type", "radio");
+        //     present.name = "attendance";
+        //     var absent = document.createElement('INPUT');
+        //     absent.setAttribute("type", "radio");
+        //     absent.name = "attendance";
+        //     if (sta == "Present")
+        //         present.checked = true;
+        //     else
+        //         absent.checked = true;
 
-            radioBody.appendChild(present);
-            radioBody.appendChild(absent);
+        //     radioBody.appendChild(present);
+        //     radioBody.appendChild(absent);
 
-        }
+        // }
     </script>
 </head>
 <body onload="setVisible({{id}})">
@@ -169,9 +169,7 @@
                 </div>
 
             </div>
-        </div>
 
-        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" name="secForm" method="POST">
                 <div>
@@ -188,6 +186,24 @@
                 </div>
             </form>
         </div>
+
+        <!-- <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
+            <div class="title">Update Attendance</div>
+            <form action="/updateAtt" name="secForm" method="POST">
+                <div>
+                    <span style="width: 40%; display: inline-block">
+                        <b>On Leave Evidence</b><br/>
+                        Image: <input type=file name="emp_image_file" style="height:20px;font-size:12pt;color:grey;">
+                    </span>
+                    <span style="width: 40%; float: right">
+                        <p>Attendance of employee:</p>
+                        <span id="radioBtns">
+
+                        </span>
+                    </span>
+                </div>
+            </form>
+        </div> -->
 
     </main>
 
