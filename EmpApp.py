@@ -118,8 +118,8 @@ def payrollList():
         arr[col].append(col + 1)
         arr[col].append(result[col][1] + result[col][2])
         arr[col].append(result[col][0])
-        arr[col].append(result[col][3])
-        arr[col].append(result[col][6])
+        arr[col].append(result[col][7])
+        arr[col].append(result[col][8])
 
     cursor.close()
 
