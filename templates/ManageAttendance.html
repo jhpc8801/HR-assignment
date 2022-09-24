@@ -93,15 +93,26 @@
         }
     </style>
     <script>
-        // function setVisible(id) {
-        //     if (id != null) {
-        //         document.getElementById("updateAttendance").style.visibility = "visible";
-        //         // if (stat == "Present")
-        //         //     document.getElementById("att_present").checked = true;
-        //         // if (stat == "Absent")
-        //         //     document.getElementById("att_absent").checked = true;
-        //     }
-        // }
+        function setVisible(id) {
+            if (id != null) {
+                document.getElementById("updateAttendance").style.visibility = "visible";
+                // if (stat == "Present")
+                //     document.getElementById("att_present").checked = true;
+                // if (stat == "Absent")
+                //     document.getElementById("att_absent").checked = true;
+                
+                var radioBody = document.getElementById("radioBtns");
+
+                var present = document.createElement('INPUT');
+                present.setAttribute("type", "radio");
+                present.name = "attendance";
+                var absent = document.createElement('INPUT');
+                absent.setAttribute("type", "radio");
+                absent.name = "attendance";
+                present.checked = "true";
+
+            }
+        }
         function setAtt(stat) {
             if (stat == "Present")
                 document.secForm.attendance[0].checked = true;
@@ -109,15 +120,9 @@
                 document.secForm.attendance[1].checked = true;
 
         }
-
-        stat = "Present"
-        if (stat == "Present")
-            document.getElementById("att_present").checked = true;
-        if (stat == "Absent")
-            document.getElementById("att_absent").checked = true;
     </script>
 </head>
-<body onload="setVisible({{id}}), setAtt({{stat}})">
+<body onload="setVisible({{id}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
@@ -153,7 +158,7 @@
             </div>
         </div>
 
-        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px">
+        <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
             <div class="title">Update Attendance</div>
             <form action="/updateAtt" name="secForm" method="POST">
                 <div>
@@ -163,10 +168,9 @@
                     </span>
                     <span style="width: 40%; float: right">
                         <p>Attendance of employee:</p>
-                        <input type="radio" id="att_present" name="attendance" value="Present" checked>
-                        <label for="att_present">Present</label><br>
-                        <input type="radio" id="att_absent" name="attendance" value="Absent">
-                        <label for="att_absent">Absent</label>
+                        <span id="radioBtns">
+
+                        </span>
                     </span>
                 </div>
             </form>
