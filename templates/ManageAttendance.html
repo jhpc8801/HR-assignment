@@ -96,11 +96,22 @@
         function setVisible(id) {
             if (id != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
-                // if (stat == "Present")
-                //     document.getElementById("att_present").checked = true;
-                // if (stat == "Absent")
-                //     document.getElementById("att_absent").checked = true;
-                setAtt();
+                var sta = {{stat}};
+                var radioBody = document.getElementById("radioBtns");
+
+                var present = document.createElement('INPUT');
+                present.setAttribute("type", "radio");
+                present.name = "attendance";
+                var absent = document.createElement('INPUT');
+                absent.setAttribute("type", "radio");
+                absent.name = "attendance";
+                if (sta == "Present")
+                    present.checked = true;
+                else
+                    absent.checked = true;
+
+                radioBody.appendChild(present);
+                radioBody.appendChild(absent);
             }
         }
         function setAtt() {
