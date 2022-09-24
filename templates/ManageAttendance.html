@@ -96,7 +96,7 @@
         function setVisible(id) {
             if (id != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
-                //var sta = {{stat}};
+                var sta = {{stat}};
                 // var radioBody = document.getElementById("radioBtns");
 
                 // var present = document.createElement('INPUT');
@@ -112,6 +112,11 @@
 
                 // radioBody.appendChild(present);
                 // radioBody.appendChild(absent);
+
+                if (sta == True)
+                    document.getElementById("att_present").checked = True;
+                else
+                    document.getElementById("att_absent").checked = True;
             }
         }
         // function setAtt() {
@@ -181,9 +186,9 @@
                     </span>
                     <span style="width: 40%; float: right">
                         <p>Attendance of employee:</p>
-                        <input type="radio" id="att_present" name="attendance" value="Present" checked="{{ stat }}">
+                        <input type="radio" id="att_present" name="attendance" value="Present">
                         <label for="att_present">Present</label><br>
-                        <input type="radio" id="att_absent" name="attendance" value="Absent" checked="{{ stat }}">
+                        <input type="radio" id="att_absent" name="attendance" value="Absent">
                         <label for="att_absent">Absent</label>
                         <!-- <span id="radioBtns">
 
