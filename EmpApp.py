@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from pymysql import connections
 import os
 import boto3
+from datetime import date
 from config import *
 
 app = Flask(__name__)
@@ -159,37 +160,53 @@ def manageAttendance():
 
 @app.route("/updateAtt", methods=['POST'])
 def updateAttendance():
+    emp_id = request.form['emp_id']
     emp_image_file = request.files['emp_image_file']
+    # get the radio button data here
+    attendance = request.form['attendance'].VALUES
 
-    update_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
         return "Please select a file"
 
+    if (attendance == "Present")
+        status = 1
+    else if (attendance == "Absent")
+        status = 0
+    else
+        status = -1
+
+    today = date.today()
+    # dd/mm/YY
+    d = today.strftime("%d/%m/%Y")
+
     try:
-        #cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(update_sql, (status, d, emp_id))
         db_conn.commit()
-        emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
-        s3 = boto3.resource('s3')
 
-        try:
-            s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
-            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-            s3_location = (bucket_location['LocationConstraint'])
+        if (emp_image_file.VALUES != ""):
+            emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
+            s3 = boto3.resource('s3')
 
-            if s3_location is None:
-                s3_location = ''
-            else:
-                s3_location = '-' + s3_location
+            try:
+                s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
+                bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+                s3_location = (bucket_location['LocationConstraint'])
 
-            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-                s3_location,
-                custombucket,
-                emp_leave_evidence_in_s3)
+                if s3_location is None:
+                    s3_location = ''
+                else:
+                    s3_location = '-' + s3_location
 
-        except Exception as e:
-            return str(e)
+                object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                    s3_location,
+                    custombucket,
+                    emp_leave_evidence_in_s3)
+
+            except Exception as e:
+                return str(e)
 
     finally:
         cursor.close()
