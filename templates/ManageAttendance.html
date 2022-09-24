@@ -93,7 +93,7 @@
         }
     </style>
     <script>
-        function setVisible(id, stat) {
+        function setVisible(id) {
             if (id != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
                 // if (stat == "Present")
@@ -109,10 +109,10 @@
                 var absent = document.createElement('INPUT');
                 absent.setAttribute("type", "radio");
                 absent.name = "attendance";
-                if (stat == "Present")
-                    present.checked = true;
-                else
-                    absent.checked = true;
+                // if (stat == "Present")
+                //     present.checked = true;
+                // else
+                //     absent.checked = true;
 
                 radioBody.appendChild(present);
                 radioBody.appendChild(absent);
@@ -128,7 +128,7 @@
         // }
     </script>
 </head>
-<body onload="setVisible('{{id}}', '{{stat}}')">
+<body onload="setVisible('{{id}}')">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
