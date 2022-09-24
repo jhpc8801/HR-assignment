@@ -131,7 +131,7 @@ def GetEmpAtt():
     cursor2.close()
     cursor3.close()
 
-    status = false
+    status = False
 
     return render_template('ManageAttendance.html', id=emp_id, fname=first_name, lname=last_name, stat=status)
 
