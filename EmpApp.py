@@ -25,7 +25,7 @@ payroll_table = 'payroll'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('AddEmp.html')
+    return render_template('PayrollList.html')
 
 
 @app.route("/about", methods=['POST'])
@@ -42,7 +42,7 @@ def AddEmp():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -105,6 +105,29 @@ def AddEmp():
 
 #     return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
 
+@app.route("/getPayrollList", methods=["GET"])
+def payrollList():
+    select_sql = "SELECT employee.emp_id, employee.first_name, employee.last_name, payroll.salary, payroll.allowance, payroll.deduction, payroll.net_amount FROM employee, payroll WHERE employee.emp_id = payroll.emp_id"
+    cursor = db_conn.cursor()
+    cursor.execute(select_sql)
+    db_conn.commit()
+    result = cursor.fetchall()
+
+    arr = []
+    for col in range(len(result)):
+        arr.append([])
+        arr[col].append(col + 1)
+        arr[col].append(result[col][1] + result[col][2])
+        arr[col].append(result[col][0])
+        arr[col].append(result[col][3])
+        arr[col].append(result[col][4])
+        arr[col].append(result[col][5])
+        arr[col].append(result[col][6])
+
+    cursor.close()
+
+    return render_template("PayrollList.html", content=arr)
+
 @app.route("/getEmpAtt", methods=['GET'])
 def GetEmpAtt():
     emp_id = request.args['emp_id']
@@ -147,8 +170,8 @@ def attendance():
         arr[col].append(col + 1)
         arr[col].append(result[col][1] + result[col][2])
         arr[col].append(result[col][0])
-        arr[col].append(result[col][7])
         arr[col].append(result[col][6])
+        arr[col].append(result[col][5])
 
     cursor.close()
  
@@ -156,7 +179,40 @@ def attendance():
 
 @app.route("/manageAtt", methods=['GET', 'POST'])
 def manageAttendance():
-    x = 0
+    emp_image_file = request.files['emp_image_file']
+
+    update_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    if emp_image_file.filename == "":
+        return "Please select a file"
+
+    try:
+        #cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        db_conn.commit()
+        emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
+        s3 = boto3.resource('s3')
+
+        try:
+            s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_leave_evidence_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
 
     return render_template("ManageAttendance.html")
 
