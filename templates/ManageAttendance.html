@@ -96,7 +96,7 @@
         function setVisible(id) {
             if (id != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
-                var sta = {{stat}};
+                //var sta = {{stat}};
                 var radioBody = document.getElementById("radioBtns");
 
                 var present = document.createElement('INPUT');
@@ -105,10 +105,10 @@
                 var absent = document.createElement('INPUT');
                 absent.setAttribute("type", "radio");
                 absent.name = "attendance";
-                if (sta == "Present")
-                    present.checked = true;
-                else
-                    absent.checked = true;
+                // if (sta == "Present")
+                //     present.checked = true;
+                // else
+                //     absent.checked = true;
 
                 radioBody.appendChild(present);
                 radioBody.appendChild(absent);
