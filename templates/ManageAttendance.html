@@ -101,34 +101,29 @@
                 // if (stat == "Absent")
                 //     document.getElementById("att_absent").checked = true;
 
-                var radioBody = document.getElementById("radioBtns");
-
-                var present = document.createElement('INPUT');
-                present.setAttribute("type", "radio");
-                present.name = "attendance";
-                var absent = document.createElement('INPUT');
-                absent.setAttribute("type", "radio");
-                absent.name = "attendance";
-                // if (stat == "Present")
-                //     present.checked = true;
-                // else
-                //     absent.checked = true;
-
-                radioBody.appendChild(present);
-                radioBody.appendChild(absent);
-
             }
         }
-        // function setAtt(stat) {
-        //     if (stat == "Present")
-        //         document.secForm.attendance[0].checked = true;
-        //     if (stat == "Absent")
-        //         document.secForm.attendance[1].checked = true;
+        function setAtt(stat) {
+            var radioBody = document.getElementById("radioBtns");
 
-        // }
+            var present = document.createElement('INPUT');
+            present.setAttribute("type", "radio");
+            present.name = "attendance";
+            var absent = document.createElement('INPUT');
+            absent.setAttribute("type", "radio");
+            absent.name = "attendance";
+            if (stat == "Present")
+                present.checked = true;
+            else
+                absent.checked = true;
+
+            radioBody.appendChild(present);
+            radioBody.appendChild(absent);
+
+        }
     </script>
 </head>
-<body onload="setVisible({{id}})">
+<body onload="setVisible({{id}});setAtt({{stat}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
