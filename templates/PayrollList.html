@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Payroll List</title>
+    <style>
+        h1 {
+            color: #007cb5;
+            text-align: center;
+        }
+
+        button {
+            color: #ffffff;
+            font-size: large;
+            background-color: #007cb5;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin-left: 25px;
+            margin-right: 35px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            color: #007cb5;
+            background-color: #ffffff;
+            font-weight: bold;
+            border: 2px solid #007cb5;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 95%;
+            margin: 0px 25px 10px 25px;
+        }
+
+        td,
+        th {
+            border: 2px solid rgb(215, 215, 215);
+            font-size: large;
+            text-align: center;
+            padding: 10px 8px;
+        }
+
+        tr:nth-child(even) {
+            /* background-color: #03F2FF; */
+            background-color: #23b0f1;
+            ;
+        }
+
+        .empNames {
+            text-align: left;
+        }
+
+        .empAttend {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+    <script>
+        function createTable(tableData) {
+            var count = 0;
+            var tableBody = document.getElementById("contents");
+
+            tableData.forEach(function (rowData) {
+                var row = document.createElement('tr');
+
+                rowData.forEach(function (cellData) {
+                    var cell = document.createElement('td');
+                    cell.appendChild(document.createTextNode(cellData));
+                    row.appendChild(cell);
+                });
+
+                tableBody.appendChild(row);
+                count++;
+            });
+            document.getElementById("countEmp").innerHTML = "--- " + count.toString() + " employees ---";
+        }
+    </script>
+</head>
+
+<body onload="createTable({{ content }})">
+    <h1>Employee Payroll List</h1>
+
+    <table>
+        <tr style="background-color: rgb(225, 225, 225);">
+            <th>No.</th>
+            <th>Employee Name</th>
+            <th>Emp ID</th>
+            <th>Salary</th>
+            <th>Allowance</th>
+            <th>Deduction</th>
+            <th>Net Amount Payable</th>
+        </tr>
+        <tbody id="contents">
+        </tbody>
+    </table>
+
+    <p id="countEmp" style="text-align: center;"></p>
+</body>
+
+</html>
