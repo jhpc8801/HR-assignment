@@ -103,7 +103,6 @@
             }
         }
         function setAtt(stat) {
-            console.log(stat);
             if (stat == "Present")
                 document.getElementById("att_present").checked = true;
             if (stat == "Absent")
@@ -112,7 +111,7 @@
         }
     </script>
 </head>
-<body onload="setVisible({{id}})">
+<body onload="setVisible({{id}}), setAtt({{stat}})">
     <h1>Attendance Management</h1>
     <form action="/attend">
         <button formaction="/attend" style="margin: 0px 0px 20px 25px">Back</button>
@@ -141,7 +140,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Status</span>
-                        <b><p style="text-align: center" name="status" onload="setAtt({{stat}})">{{ stat }}</p></b>
+                        <b><p style="text-align: center" name="status">{{ stat }}</p></b>
                     </div>
                 </div>
 
