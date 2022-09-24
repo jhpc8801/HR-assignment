@@ -105,7 +105,7 @@ def AddEmp():
 
 #     return render_template('EditPayroll.html', id=emp_id, fname=first_name, lname=last_name)
 
-@app.route("/getPayrollList", methods=["GET"])
+@app.route("/getPayrollList", methods=['GET'])
 def payrollList():
     select_sql = "SELECT employee.emp_id, employee.first_name, employee.last_name, payroll.salary, payroll.allowance, payroll.deduction, payroll.net_amount FROM employee, payroll WHERE employee.emp_id = payroll.emp_id"
     cursor = db_conn.cursor()
