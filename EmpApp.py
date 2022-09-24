@@ -176,8 +176,12 @@ def attendance():
  
     return render_template("Attendance.html", content=arr)
 
-@app.route("/updateAtt", methods=['POST'])
+@app.route("/manageAtt", method=['GET'])
 def manageAttendance():
+    return render_template("ManageAttendance.html")
+
+@app.route("/updateAtt", methods=['POST'])
+def updateAttendance():
     emp_image_file = request.files['emp_image_file']
 
     update_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
