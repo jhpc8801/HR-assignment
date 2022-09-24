@@ -118,8 +118,10 @@
                 else if (sta == 0)
                     document.getElementById("att_absent").checked = "true";
                 else {
-                    document.getElementById("att_present").checked = "false";
-                    document.getElementById("att_absent").checked = "false";
+                    var radList = document.getElementsByName('attendance');
+                    for (var i = 0; i < radList.length; i++) {
+                        if(radList[i].checked) radList[i].checked = false;
+                    }
                 }
             }
         }
