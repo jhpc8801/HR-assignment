@@ -104,9 +104,9 @@
         }
         function setAtt(stat) {
             if (stat == "Present")
-                document.attendance[0].checked = true;
+                document.secForm.attendance[0].checked = true;
             if (stat == "Absent")
-                document.attendance[1].checked = true;
+                document.secForm.attendance[1].checked = true;
 
         }
     </script>
@@ -149,7 +149,7 @@
 
         <div class="container" id="updateAttendance" style="margin-top:20px; height: 130px; visibility: hidden;">
             <div class="title">Update Attendance</div>
-            <form action="/updateAtt" method="POST">
+            <form action="/updateAtt" name="secForm" method="POST">
                 <div>
                     <span style="width: 40%; display: inline-block">
                         <b>On Leave Evidence</b><br/>
