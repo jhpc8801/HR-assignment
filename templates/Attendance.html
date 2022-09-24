@@ -70,6 +70,7 @@
                             var textNode = document.createTextNode("Absent");
                         else
                             var textNode = document.createTextNode(" --- ");
+                        cell.appendChild(document.createTextNode(textNode));
                     }
                     row.appendChild(cell);
                 });
