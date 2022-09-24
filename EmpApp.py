@@ -153,7 +153,7 @@ def attendance():
  
     return render_template("Attendance.html", content=arr)
 
-@app.route("/manageAtt", methods=['POST'])
+@app.route("/manageAtt", methods=['GET', 'POST'])
 def manageAttendance():
     return render_template("ManageAttendance.html")
 
