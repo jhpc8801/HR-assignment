@@ -115,8 +115,12 @@
 
                 if (sta == 1)
                     document.getElementById("att_present").checked = "true";
-                if (sta == 0)
+                else if (sta == 0)
                     document.getElementById("att_absent").checked = "true";
+                else {
+                    document.getElementById("att_present").checked = "false";
+                    document.getElementById("att_absent").checked = "false";
+                }
             }
         }
         // function setAtt() {
