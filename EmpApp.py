@@ -171,11 +171,11 @@ def updateAttendance():
     if emp_image_file.filename == "":
         return "Please select a file"
 
-    if (attendance == "Present")
+    if (attendance == "Present"):
         status = 1
-    else if (attendance == "Absent")
+    else if (attendance == "Absent"):
         status = 0
-    else
+    else:
         status = -1
 
     today = date.today()
