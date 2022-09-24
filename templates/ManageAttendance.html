@@ -96,54 +96,32 @@
         function setVisible(id) {
             if (id != null) {
                 document.getElementById("updateAttendance").style.visibility = "visible";
-                var sta = {{stat}};
-                // var radioBody = document.getElementById("radioBtns");
+                var lblStat = document.createElement('p');
+                
 
-                // var present = document.createElement('INPUT');
-                // present.setAttribute("type", "radio");
-                // present.name = "attendance";
-                // var absent = document.createElement('INPUT');
-                // absent.setAttribute("type", "radio");
-                // absent.name = "attendance";
-                // // if (sta == "Present")
-                // //     present.checked = true;
-                // // else
-                // //     absent.checked = true;
+                var status = {{stat}};
 
-                // radioBody.appendChild(present);
-                // radioBody.appendChild(absent);
-
-                if (sta == 1)
+                if (status == 1) {
                     document.getElementById("att_present").checked = "true";
-                else if (sta == 0)
+                    var textNode = document.createTextNode("Present");
+                }
+                else if (status == 0) {
                     document.getElementById("att_absent").checked = "true";
+                    var textNode = document.createTextNode("Absent");
+                } 
                 else {
                     var radList = document.getElementsByName('attendance');
                     for (var i = 0; i < radList.length; i++) {
                         if(radList[i].checked) radList[i].checked = false;
                     }
+                    var textNode = document.createTextNode(" --- ");
                 }
+                lblStat.appendChild(textNode);
+                document.getElementById("status").appendChild(lblStat);
+
+                // <p style="text-align: center" name="status" id="status">{{ stat }}</p
             }
         }
-        // function setAtt() {
-        //     var sta = {{stat}};
-        //     var radioBody = document.getElementById("radioBtns");
-
-        //     var present = document.createElement('INPUT');
-        //     present.setAttribute("type", "radio");
-        //     present.name = "attendance";
-        //     var absent = document.createElement('INPUT');
-        //     absent.setAttribute("type", "radio");
-        //     absent.name = "attendance";
-        //     if (sta == "Present")
-        //         present.checked = true;
-        //     else
-        //         absent.checked = true;
-
-        //     radioBody.appendChild(present);
-        //     radioBody.appendChild(absent);
-
-        // }
     </script>
 </head>
 <body onload="setVisible({{id}})">
@@ -175,7 +153,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Status</span>
-                        <b><p style="text-align: center" name="status">{{ stat }}</p></b>
+                        <b id="status"></b>
                     </div>
                 </div>
 
@@ -196,9 +174,6 @@
                         <label for="att_present">Present</label><br>
                         <input type="radio" id="att_absent" name="attendance" value="Absent">
                         <label for="att_absent">Absent</label>
-                        <!-- <span id="radioBtns">
-
-                        </span> -->
                     </span>
                 </div>
             </form>
