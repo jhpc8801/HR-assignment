@@ -61,7 +61,7 @@
 
                 rowData.forEach(function(cellData) {
                     var cell = document.createElement('td');
-                    if (cellData == "1." || (cellData != 0 && cellData != -1))
+                    if (str(cellData) == "1." || (cellData != 0 && cellData != -1))
                         cell.appendChild(document.createTextNode(cellData));
                     else {
                         if (cellData == 1)
