@@ -215,7 +215,7 @@ def updateAttendance():
     finally:
         cursor.close()
 
-    return render_template("ManageAttendance.html")
+    return True
 
 @app.route("/removeLeave", methods=['POST'])
 def removeLeaveEvidence():
