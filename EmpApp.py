@@ -161,7 +161,7 @@ def manageAttendance():
 @app.route("/updateAtt", methods=['POST'])
 def updateAttendance():
     # bad request key [problem here]
-    #emp_id = request.form['emp_id']
+    emp_id = request.args['emp_id']
     #emp_image_file = request.files['emp_image_file']
     # get the radio button data here
     attendance = request.form['attendance']
@@ -212,7 +212,7 @@ def updateAttendance():
     finally:
         cursor.close()
 
-    return render_template("ManageAttendance.html", id="1111")
+    return render_template("ManageAttendance.html", emp_id="1111")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
