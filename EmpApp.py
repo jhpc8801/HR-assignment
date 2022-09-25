@@ -183,7 +183,7 @@ def updateAttendance():
 
     try:
 
-        if (emp_image_file.filename != ""):     # if got things inside, then make it to "on leave", then disable the radio buttons
+        if (emp_image_file.filename != ""):
             emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
             s3 = boto3.resource('s3')
             status = -2
@@ -209,11 +209,10 @@ def updateAttendance():
         cursor.execute(update_sql, (status, modified_time, emp_id))
         db_conn.commit()
 
-
     finally:
         cursor.close()
 
-    return render_template("ManageAttendance.html")
+    return render_template("ManageAttendance.html", id=emp_id)
 
 @app.route("/removeLeave", methods=['POST'])
 def removeLeaveEvidence():
@@ -247,6 +246,3 @@ def removeLeaveEvidence():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
-
-
-# add on remove button for on leave evidence?
