@@ -61,7 +61,7 @@
 
                 rowData.forEach(function(cellData) {
                     var cell = document.createElement('td');
-                    if (str(cellData) == "1." || (cellData != 0 && cellData != -1))
+                    if (cellData != 1 && cellData != 0 && cellData != -1)
                         cell.appendChild(document.createTextNode(cellData));
                     else {
                         if (cellData == 1)
@@ -93,7 +93,6 @@
 
     <table>
         <tr style="background-color: rgb(225, 225, 225);">
-          <th>No.</th>
           <th>Employee Name</th>
           <th>Emp ID</th>
           <th>Time check-in</th>
