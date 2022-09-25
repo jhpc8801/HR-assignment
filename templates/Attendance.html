@@ -64,7 +64,7 @@
                     if (cellData != 1 && cellData != 0 && cellData != -1)
                         cell.appendChild(document.createTextNode(cellData));
                     else {
-                        if (cellData == 1)
+                        if (cellData == 1 && cellData != "1.")
                             var textNode = document.createTextNode("Present");
                         else if (cellData == 0)
                             var textNode = document.createTextNode("Absent");
