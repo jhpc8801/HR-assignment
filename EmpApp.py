@@ -3,6 +3,7 @@ from pymysql import connections
 import os
 import boto3
 from datetime import date
+from datetime import datetime
 from config import *
 
 app = Flask(__name__)
@@ -144,7 +145,7 @@ def attendance():
     arr = []
     for col in range(len(result)):
         arr.append([])
-        arr[col].append(result[col][1] + result[col][2])
+        arr[col].append(str(result[col][1]) + " " + str(result[col][2]))
         arr[col].append(result[col][0])
         arr[col].append(result[col][6])
         arr[col].append(result[col][5])
@@ -178,11 +179,14 @@ def updateAttendance():
         status = -1
 
     today = date.today()
+    now = datetime.now()
     # dd/mm/YY
     d = today.strftime("%d/%m/%Y")
+    t = now.strftime("%H:%M:%S")
+    modified_time = t + ", " + d
 
     try:
-        cursor.execute(update_sql, (status, d, emp_id))
+        cursor.execute(update_sql, (status, modified_time, emp_id))
         db_conn.commit()
 
         if (emp_image_file.VALUES != ""):
