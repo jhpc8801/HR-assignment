@@ -164,7 +164,7 @@ def updateAttendance():
     #emp_id = request.form['emp_id']
     #emp_image_file = request.files['emp_image_file']
     # get the radio button data here
-    attendance = request.form['attendance'].VALUES
+    attendance = request.form['attendance']
 
     update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = 1111"
     cursor = db_conn.cursor()
