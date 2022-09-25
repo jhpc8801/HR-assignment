@@ -4,11 +4,9 @@ import os
 import boto3
 from datetime import date
 from datetime import datetime
-from flask import *  
 from config import *
 
 app = Flask(__name__)
-app.secret_key = "abc"  
 
 bucket = custombucket
 region = customregion
@@ -210,12 +208,11 @@ def updateAttendance():
 
         cursor.execute(update_sql, (status, modified_time, emp_id))
         db_conn.commit()
-        flash("Successfully Saved!")  
 
     finally:
         cursor.close()
 
-    return True
+    return render_template("ManageAttendance.html")
 
 @app.route("/removeLeave", methods=['POST'])
 def removeLeaveEvidence():
