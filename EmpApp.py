@@ -208,11 +208,12 @@ def updateAttendance():
 
         cursor.execute(update_sql, (status, modified_time, emp_id))
         db_conn.commit()
+        flash("Successfully Saved!")  
 
     finally:
         cursor.close()
 
-    return redirect("/updateAtt")
+    return render_template("ManageAttendance.html")
 
 @app.route("/removeLeave", methods=['POST'])
 def removeLeaveEvidence():
