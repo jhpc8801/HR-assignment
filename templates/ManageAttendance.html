@@ -117,6 +117,8 @@
                     }
                     document.getElementById("att_present").disabled = true;
                     document.getElementById("att_absent").disabled = true;
+                    document.getElementById("withFile").visibility = false;
+                    document.getElementById("withoutFile").visibility = true;
                     var textNode = document.createTextNode("On Leave");
                 }
                 else {
@@ -167,12 +169,18 @@
                 </div>
             </div>
 
-            <div class="container" id="updateAttendance" style="margin-top:20px; height: 180px; visibility: hidden;">
+            <div class="container" id="updateAttendance" style="margin-top:20px; height: 180px">
                 <div class="title">Update Attendance</div>
                 <div>
-                    <span style="width: 40%; display: inline-block">
+                    <span style="width: 40%; display: inline-block;">
                         <b>On Leave Evidence</b><br/>
-                        Image: <input type=file name="emp_image_file" style="height:20px;font-size:12pt;color:grey;">
+                        <span id="withFile">
+                            Image: <input type=file name="emp_image_file" style="height:25px;font-size:12pt;color:grey;" accept="image/png, image/jpeg">
+                        </span>
+                        <span id="withoutFile" style="visibility: hidden">
+                            <p style="font-size:larger"> Item attached... </p>
+                            <button formaction="/removeLeave" style="width: 100px">Remove</button>
+                        </span>
                     </span>
                     <span style="width: 40%; float: right">
                         <p>Attendance of employee:</p>
