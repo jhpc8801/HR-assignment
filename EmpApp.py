@@ -144,7 +144,7 @@ def attendance():
     arr = []
     for col in range(len(result)):
         arr.append([])
-        arr[col].append((col + 1) + ".")
+        arr[col].append(str(col + 1) + ".")
         arr[col].append(result[col][1] + result[col][2])
         arr[col].append(result[col][0])
         arr[col].append(result[col][6])
