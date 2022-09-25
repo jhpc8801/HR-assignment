@@ -162,7 +162,6 @@ def manageAttendance():
 def updateAttendance():
     emp_id = request.form.get('emp_id')
     emp_image_file = request.files['emp_image_file']
-    # get the radio button data here
     attendance = request.form['attendance']
 
     update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = %s"
@@ -215,6 +214,36 @@ def updateAttendance():
         cursor.close()
 
     return render_template("ManageAttendance.html")
+
+@app.route("/removeLeave", methods=['POST'])
+def removeLeaveEvidence():
+    emp_id = request.form.get('emp_id')
+
+    update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    today = date.today()
+    now = datetime.now()
+    # dd/mm/YY
+    d = today.strftime("%d/%m/%Y")
+    t = now.strftime("%H:%M:%S")
+    modified_time = t + ", " + d
+
+    cursor.execute(update_sql, ("-1", modified_time, emp_id))
+    db_conn.commit()
+    cursor.close()
+
+    return render_template("ManageAttendance.html")
+
+    # try:
+    #     s3 = boto3.client(
+    #         "s3", aws_access_key_id=aws_key, aws_secret_access_key=aws_secret
+    #     )
+    #     s3.delete_object(Bucket=custombucket, Key=emp_leave_evidence_in_s3)
+    #     return True
+    # except Exception as ex:
+    #     print(str(ex))
+    #     return False
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
