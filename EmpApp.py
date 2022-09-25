@@ -186,7 +186,7 @@ def updateAttendance():
         cursor.execute(update_sql, (status, modified_time, emp_id))
         db_conn.commit()
 
-        if (emp_image_file.VALUES != ""):
+        if (emp_image_file.filename != ""):
             emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
             s3 = boto3.resource('s3')
 
