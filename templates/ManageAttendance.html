@@ -109,6 +109,15 @@
                     document.getElementById("att_absent").checked = "true";
                     var textNode = document.createTextNode("Absent");
                 } 
+                else if (status == -2) {
+                    // put the filename?
+                    var radList = document.getElementsByName('attendance');
+                    for (var i = 0; i < radList.length; i++) {
+                        if(radList[i].checked) radList[i].checked = false;
+                    }
+                    radList.disabled = true;
+                    var textNode = document.createTextNode("On Leave");
+                }
                 else {
                     var radList = document.getElementsByName('attendance');
                     for (var i = 0; i < radList.length; i++) {

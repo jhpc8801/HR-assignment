@@ -183,12 +183,11 @@ def updateAttendance():
     modified_time = t + ", " + d
 
     try:
-        cursor.execute(update_sql, (status, modified_time, emp_id))
-        db_conn.commit()
 
-        if (emp_image_file.filename != ""):
+        if (emp_image_file.filename != ""):     # if got things inside, then make it to "on leave", then disable the radio buttons
             emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
             s3 = boto3.resource('s3')
+            status = -2
 
             try:
                 s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
@@ -208,10 +207,17 @@ def updateAttendance():
             except Exception as e:
                 return str(e)
 
+        cursor.execute(update_sql, (status, modified_time, emp_id))
+        db_conn.commit()
+
+
     finally:
         cursor.close()
 
-    return render_template("ManageAttendance.html", emp_id="1111")
+    return render_template("ManageAttendance.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
+
+# add on remove button for on leave evidence?

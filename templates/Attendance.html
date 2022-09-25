@@ -40,7 +40,6 @@
             padding: 10px 8px;
         }
         tr:nth-child(even) {
-            /* background-color: #03F2FF; */
             background-color: #23b0f1;;
         }
         .empNames {
@@ -68,6 +67,8 @@
                             var textNode = document.createTextNode("Present");
                         else if (cellData == 0)
                             var textNode = document.createTextNode("Absent");
+                        else if (cellData == -2)
+                            var textNode = document.createTextNode("On Leave");
                         else
                             var textNode = document.createTextNode(" --- ");
                         cell.appendChild(textNode);
