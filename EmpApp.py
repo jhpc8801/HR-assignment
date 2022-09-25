@@ -8,6 +8,7 @@ from flask import *
 from config import *
 
 app = Flask(__name__)
+app.secret_key = "abc"  
 
 bucket = custombucket
 region = customregion
