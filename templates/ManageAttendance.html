@@ -129,36 +129,36 @@
     </form>
     
     <main>
-        <div class="container">
-            <div class="title">Employee Info</div>
-            <div class="innerForm">
-                <div class="employee-details">
-                    <div class="input-box">
-                        <span class="details">Employee ID</span>
-                        <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
-                            name="emp_id" />
-                        <button formaction="/getEmpAtt" formmethod="GET" class="get" type="submit">Get Employee</button>
+        <form action="/updateAtt" method="POST" autocomplete="on" enctype="multipart/form-data"></form>
+            <div class="container">
+                <div class="title">Employee Info</div>
+                <div class="innerForm">
+                    <div class="employee-details">
+                        <div class="input-box">
+                            <span class="details">Employee ID</span>
+                            <input style="display: inline-flex" type="text" placeholder="ex:0000" value="{{ id }}"
+                                name="emp_id" />
+                            <button formaction="/getEmpAtt" formmethod="GET" class="get" type="submit">Get Employee</button>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">First name</span>
+                            <input disabled type="text" value="{{ fname }}" name="last_name">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Last name</span>
+                            <input disabled type="text" placeholder="{{ lname }}" name="last_name">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Status</span>
+                            <b id="status"></b>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <span class="details">First name</span>
-                        <input disabled type="text" value="{{ fname }}" name="last_name">
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Last name</span>
-                        <input disabled type="text" placeholder="{{ lname }}" name="last_name">
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Status</span>
-                        <b id="status"></b>
-                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <div class="container" id="updateAttendance" style="margin-top:20px; height: 180px; visibility: hidden;">
-            <div class="title">Update Attendance</div>
-            <form action="/updateAtt" name="secForm" method="POST">
+            <div class="container" id="updateAttendance" style="margin-top:20px; height: 180px; visibility: hidden;">
+                <div class="title">Update Attendance</div>
                 <div>
                     <span style="width: 40%; display: inline-block">
                         <b>On Leave Evidence</b><br/>
@@ -173,9 +173,8 @@
                         <div><button formaction="/updateAtt" style="margin-top: 10px; float:right; width: 100px">Save</button></div>
                     </span>
                 </div>
-            </form>
-        </div>
-
+            </div>
+        </form>
     </main>
 
 </body>
