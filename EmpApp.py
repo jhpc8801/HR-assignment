@@ -144,7 +144,7 @@ def attendance():
     arr = []
     for col in range(len(result)):
         arr.append([])
-        arr[col].append(col + 1)
+        arr[col].append((col + 1) + ".")
         arr[col].append(result[col][1] + result[col][2])
         arr[col].append(result[col][0])
         arr[col].append(result[col][6])
@@ -161,15 +161,15 @@ def manageAttendance():
 @app.route("/updateAtt", methods=['POST'])
 def updateAttendance():
     emp_id = request.form.get('emp_id')
-    #emp_image_file = request.files['emp_image_file']
+    emp_image_file = request.files['emp_image_file']
     # get the radio button data here
     attendance = request.form['attendance']
 
     update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
-    # if emp_image_file.filename == "":
-    #     return "Please select a file"
+    if emp_image_file.filename == "":
+        return "Please select a file"
 
     if (attendance == "Present"):
         status = 1
@@ -186,27 +186,27 @@ def updateAttendance():
         cursor.execute(update_sql, (status, d, emp_id))
         db_conn.commit()
 
-        # if (emp_image_file.VALUES != ""):
-        #     emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
-        #     s3 = boto3.resource('s3')
+        if (emp_image_file.VALUES != ""):
+            emp_leave_evidence_in_s3 = "emp-id-" + str(emp_id) + "_leave_evidence"
+            s3 = boto3.resource('s3')
 
-        #     try:
-        #         s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
-        #         bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-        #         s3_location = (bucket_location['LocationConstraint'])
+            try:
+                s3.Bucket(custombucket).put_object(Key=emp_leave_evidence_in_s3, Body=emp_image_file)
+                bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+                s3_location = (bucket_location['LocationConstraint'])
 
-        #         if s3_location is None:
-        #             s3_location = ''
-        #         else:
-        #             s3_location = '-' + s3_location
+                if s3_location is None:
+                    s3_location = ''
+                else:
+                    s3_location = '-' + s3_location
 
-        #         object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-        #             s3_location,
-        #             custombucket,
-        #             emp_leave_evidence_in_s3)
+                object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                    s3_location,
+                    custombucket,
+                    emp_leave_evidence_in_s3)
 
-        #     except Exception as e:
-        #         return str(e)
+            except Exception as e:
+                return str(e)
 
     finally:
         cursor.close()
