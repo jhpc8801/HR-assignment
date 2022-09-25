@@ -168,9 +168,6 @@ def updateAttendance():
     update_sql = "UPDATE employee SET status = %s, date = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
-    if emp_image_file.filename == "":
-        return "Please select a file"
-
     if (attendance == "Present"):
         status = 1
     elif (attendance == "Absent"):
