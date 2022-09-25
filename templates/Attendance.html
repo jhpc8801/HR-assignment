@@ -60,7 +60,7 @@
 
                 rowData.forEach(function(cellData) {
                     var cell = document.createElement('td');
-                    if (cellData != 1 && cellData != 0 && cellData != -1)
+                    if (cellData != 1 && cellData != 0 && cellData != -1 && cellData != -2)
                         cell.appendChild(document.createTextNode(cellData));
                     else {
                         if (cellData == 1)
