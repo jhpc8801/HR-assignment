@@ -160,7 +160,8 @@ def manageAttendance():
 
 @app.route("/updateAtt", methods=['POST'])
 def updateAttendance():
-    emp_id = request.form['emp_id']
+    # bad request key [problem here]
+    emp_id = request.args['emp_id']
     emp_image_file = request.files['emp_image_file']
     # get the radio button data here
     attendance = request.form['attendance'].VALUES
